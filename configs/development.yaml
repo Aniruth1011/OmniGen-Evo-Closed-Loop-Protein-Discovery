@@ -1,0 +1,28 @@
+scope: development
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+rounds: 4
+round_size: 24
+total_budget: 96
+common_initialization: seeded_uniform_theoretical_space
+wild_type_sequence: VDGV
+wild_type_fitness: 1.0
+wild_type_role: public_reference_only_not_counted_or_used_as_training_assay
+surrogate:
+  family: ExtraTreesRegressor
+  n_estimators: 128
+  max_features: sqrt
+  min_samples_leaf: 1
+  encoding: four_position_twenty_amino_acid_one_hot
+uncertainty: across_tree_standard_deviation
+fixed_ucb_beta: 1.0
+fixed_mixture:
+  EXPLOIT_MODEL: 8
+  EXPLORE_UNCERTAIN: 6
+  EXPLORE_DIVERSE: 6
+  LOCAL_MUTATE: 4
+adaptive_actions:
+  - EXPLOIT_MODEL
+  - EXPLORE_UNCERTAIN
+  - EXPLORE_DIVERSE
+  - LOCAL_MUTATE
+  - RANDOM_SAMPLE

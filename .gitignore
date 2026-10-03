@@ -1,0 +1,19 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Raw GB1 data is forbidden inside the agent-readable repository.
+data/
+*.sqlite
+*.sqlite3
+private_oracle/
+
+# Generated run artifacts can be large; retain directory sentinels and research docs.
+runs/**/candidate_scores.npz
+artifacts/figures/*.png
+

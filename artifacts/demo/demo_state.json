@@ -1,0 +1,11 @@
+{
+  "aggregate_result": null,
+  "allocation": "not allocated",
+  "assays_used": 0,
+  "current_best": "not measured",
+  "handoff": "Pending: measurements \u2192 critic \u2192 planner \u2192 lab",
+  "policy_change_reason": "No real GB1 result is available; no adaptation event has been fabricated.",
+  "representative_run": null,
+  "status": "AWAITING_REAL_OMNIGENT_RUN",
+  "title": "OmniEvo \u2014 GB1 Directed Evolution"
+}

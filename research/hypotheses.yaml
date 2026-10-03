@@ -1,0 +1,41 @@
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "statement": "Adaptive allocation achieves higher terminal best-observed fitness than the matched fixed-mixture control.",
+      "prediction": "The paired terminal-fitness difference is positive across confirmatory seeds.",
+      "falsifier": "No reliable paired improvement remains under matched surrogate, initialization, primitives, seeds, and budget.",
+      "alternative_explanations": ["surrogate differences", "initialization luck", "post-hoc tuning"],
+      "minimum_test": "At least 30 paired confirmatory seeds after preregistration approval.",
+      "status": "PROPOSED"
+    },
+    {
+      "id": "H2",
+      "statement": "Useful acquisition allocation changes as observed evidence accumulates.",
+      "prediction": "Successful adaptive runs change allocation for evidence-linked reasons and changes improve subsequent yield.",
+      "falsifier": "A static allocation performs equivalently or the planner immediately converges to one unchanging policy.",
+      "alternative_explanations": ["changes reflect noise", "changes are cosmetic"],
+      "minimum_test": "Round-level allocation and next-round outcome analysis across confirmatory seeds.",
+      "status": "PROPOSED"
+    },
+    {
+      "id": "H3",
+      "statement": "Naive Hamming-1 local greed stalls more often than search retaining distant exploration.",
+      "prediction": "Diversity-aware strategies exceed greedy local search more often under the same budget.",
+      "falsifier": "Greedy local search matches or exceeds adaptive strategies across repeated paired runs.",
+      "alternative_explanations": ["common initialization already lands near high fitness"],
+      "minimum_test": "Budget-matched local-only baseline on all confirmatory seeds.",
+      "status": "PROPOSED"
+    },
+    {
+      "id": "H4",
+      "statement": "Any advantage is caused by allocation changes rather than a stronger surrogate.",
+      "prediction": "Adaptive beats fixed mixture when both use identical fitted surrogate machinery and candidate primitives.",
+      "falsifier": "The performance difference vanishes in the same-surrogate control.",
+      "alternative_explanations": ["unequal candidate pools", "unequal unavailable refills"],
+      "minimum_test": "Primary adaptive-versus-fixed-mixture paired contrast.",
+      "status": "PROPOSED"
+    }
+  ]
+}
+

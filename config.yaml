@@ -1,0 +1,44 @@
+spec_version: 1
+name: omnievo-scientific-director
+description: Databricks Omnigent scientific director for adaptive GB1 directed evolution under a strict 96-assay budget.
+instructions: AGENTS.md
+
+executor:
+  type: omnigent
+  use_responses: false
+  config:
+    harness: openai-agents
+    profile: omnievo
+  model: databricks-qwen3-next-80b-a3b-instruct
+  auth:
+    type: api_key
+    api_key: ${OMNIEVO_DATABRICKS_TOKEN}
+    base_url: ${OMNIEVO_DATABRICKS_BASE_URL}
+
+interaction:
+  conversational: true
+  modalities:
+    input: [text, file]
+    output: [text]
+
+tools:
+  agents:
+    - literature-scientist
+    - hypothesis-scientist
+    - surrogate-modeler
+    - exploration-specialist
+    - exploitation-specialist
+    - local-search-specialist
+    - experiment-planner
+    - scientific-critic
+    - statistical-reviewer
+    - demo-curator
+  builtins:
+    - web_search
+
+policies:
+  session_tool_cap:
+    type: function
+    handler: omnigent.policies.builtins.safety.max_tool_calls_per_session
+    factory_params:
+      limit: 500

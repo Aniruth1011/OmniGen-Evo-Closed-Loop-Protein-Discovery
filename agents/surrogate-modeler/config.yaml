@@ -1,0 +1,22 @@
+spec_version: 1
+name: surrogate-modeler
+description: Surrogate Modeler for the OmniEvo GB1 scientific workflow.
+instructions: AGENTS.md
+
+executor:
+  type: omnigent
+  use_responses: false
+  config:
+    harness: openai-agents
+    profile: omnievo
+  model: databricks-qwen3-next-80b-a3b-instruct
+  auth:
+    type: api_key
+    api_key: ${OMNIEVO_DATABRICKS_TOKEN}
+    base_url: ${OMNIEVO_DATABRICKS_BASE_URL}
+
+interaction:
+  conversational: true
+  modalities:
+    input: [text, file]
+    output: [text]

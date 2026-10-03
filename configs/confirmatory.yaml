@@ -1,0 +1,10 @@
+status: PENDING_HUMAN_APPROVAL
+scope: confirmatory
+seeds: [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149]
+primary_endpoint: best_observed_fitness_after_96_successful_assays
+primary_contrast: adaptive_minus_fixed_mixture_paired_by_seed
+protocol_source: configs/development.yaml
+minimum_pairs: 30
+target_pairs: 50
+unblinding_requires_human_approval: true
+

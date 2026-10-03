@@ -1,0 +1,29 @@
+{
+  "project": "OmniEvo: Adaptive Agentic Directed Evolution on GB1",
+  "updated_at": "2026-10-03",
+  "phase": "implementation",
+  "execution_mode": "local workspace; Databricks Omnigent session not connected",
+  "git_commit": null,
+  "python_detected": "3.9.6 (development shell; target runtime >=3.10)",
+  "oracle": {
+    "raw_dataset_in_repository": false,
+    "private_dataset_configured": true,
+    "service_implemented": true,
+    "real_dataset_audit_status": "PASS"
+  },
+  "omnigent": {
+    "agent_image_present": true,
+    "deterministic_root_tools_present": true,
+    "workspace_session_verified": false,
+    "demo_trace_status": "BLOCKED_MISSING_DATABRICKS_SESSION"
+  },
+  "protocol": {
+    "rounds": 4,
+    "assays_per_round": 24,
+    "total_successful_assays": 96,
+    "wild_type_counts_against_budget": false,
+    "development_seeds": "0-19",
+    "confirmatory_seeds": "100-149; pending required human approval"
+  },
+  "results_status": "NO_REAL_SCIENTIFIC_RUNS_PERFORMED"
+}
