@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>OmniEvo Final Presentation</title><style>
+*{box-sizing:border-box} body{margin:0;background:#0B1020;color:#F5F7FF;font-family:Inter,ui-sans-serif,system-ui,sans-serif;overflow:hidden}
+.slide{display:none;width:100vw;height:100vh;padding:4vh 5vw;background:radial-gradient(circle at 90% 5%,#192747 0,#0B1020 38%)}
+.slide.active{display:grid;grid-template-rows:auto 1fr auto;gap:2vh} header{display:flex;justify-content:space-between;align-items:flex-start}
+h1{font-size:clamp(30px,4vw,62px);line-height:1.02;margin:0;letter-spacing:-.035em} header p{color:#A8B3CF;font-size:clamp(15px,1.5vw,24px);margin:.7rem 0 0}
+header b{color:#8B7CF6;font-size:20px} main{display:flex;align-items:center;justify-content:center;min-height:0} main img{max-width:100%;max-height:76vh;object-fit:contain;border-radius:14px}
+footer{color:#7886a6;font-size:12px;letter-spacing:.04em} .hero{text-align:center} .pill{display:inline-block;padding:10px 18px;border:1px solid #8B7CF6;border-radius:999px;color:#8B7CF6;font-weight:700;letter-spacing:.12em}
+.metric{font-size:clamp(72px,13vw,190px);font-weight:900;letter-spacing:-.07em;margin:3vh 0 0} .metric span{color:#2DD4BF .hero p{color:#A8B3CF;font-size:24px}
+.hint{position:fixed;right:18px;bottom:12px;color:#64748b;font-size:11px}
+</style></head><body><section class="slide active">
+          <header><div><h1>Adaptive Agentic Directed Evolution</h1><p>96 assays. Four rounds. One hidden GB1 landscape.</p></div><b>01</b></header>
+          <main><div class="hero"><div class="pill">DATABRICKS OMNIGENT × GB1</div><div class="metric">IYGV&nbsp;&nbsp;<span>4.388</span></div><p>Best observed fitness after exactly 96 hidden-lab measurements</p></div></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>The scientific question</h1><p>Does evidence-driven strategy switching add value beyond the same surrogate model?</p></div><b>02</b></header>
+          <main><img src="06_omnigent_orchestration.png" alt="The scientific question"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>The discovery run</h1><p>A visible 4-round trajectory from initialization to a high-fitness double mutant.</p></div><b>03</b></header>
+          <main><img src="01_discovery_trajectory.png" alt="The discovery run"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>The agent changed its mind</h1><p>Omnigent shifted budget away from low-yield exploration and toward local/interaction tests.</p></div><b>04</b></header>
+          <main><img src="02_adaptive_allocation.png" alt="The agent changed its mind"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>Evidence → strategy change → result</h1><p>The exact transition to show in the demo video.</p></div><b>05</b></header>
+          <main><img src="07_adaptation_story.png" alt="Evidence → strategy change → result"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>The biological surprise</h1><p>IYGV showed strong positive epistasis while related combinations were antagonistic.</p></div><b>06</b></header>
+          <main><img src="04_epistasis.png" alt="The biological surprise"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>Why both model and agent mattered</h1><p>The surrogate ranked the winner highly enough to test—but badly underpredicted its magnitude.</p></div><b>07</b></header>
+          <main><img src="05_model_diagnostics.png" alt="Why both model and agent mattered"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>Where the assays paid off</h1><p>Model exploitation found the terminal best; local mutation found the best single mutant.</p></div><b>08</b></header>
+          <main><img src="03_source_performance.png" alt="Where the assays paid off"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><section class="slide">
+          <header><div><h1>The honest conclusion</h1><p>A compelling development run, not yet a causal superiority result.</p></div><b>09</b></header>
+          <main><img src="08_evidence_status.png" alt="The honest conclusion"></main>
+          <footer>OmniEvo • development run seed 0 • use paired baselines for performance claims</footer>
+        </section><div class="hint">← → to navigate • F11 for full screen</div>
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+let current = 0;
+function show(next) {
+  slides[current].classList.remove('active');
+  current = (next + slides.length) % slides.length;
+  slides[current].classList.add('active');
+}
+addEventListener('keydown', event => {
+  if (['ArrowRight', ' ', 'PageDown'].includes(event.key)) show(current + 1);
+  if (['ArrowLeft', 'PageUp'].includes(event.key)) show(current - 1);
+});
+</script></body></html>

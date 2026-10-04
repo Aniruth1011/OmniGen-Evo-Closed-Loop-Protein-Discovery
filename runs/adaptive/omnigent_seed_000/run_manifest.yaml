@@ -1,0 +1,10 @@
+{
+  "encoding": "4x20 one-hot",
+  "initialization_candidates": "runs/adaptive/omnigent_seed_000/initialization_candidates.json",
+  "round_size": 24,
+  "run_id": "adaptive_omnigent_seed_000",
+  "seed": 0,
+  "strategy": "adaptive",
+  "surrogate": "ExtraTreesRegressor",
+  "total_budget": 96
+}

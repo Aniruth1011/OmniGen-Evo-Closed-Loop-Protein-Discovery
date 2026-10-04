@@ -1,0 +1,86 @@
+{
+  "confidence": "low-to-medium (rarity/concentration pattern is robust; all residue-level patterns rest on 1-3 observations)",
+  "hypotheses": [
+    {
+      "evidence_against": "n=24 is small; a single lucky draw does not estimate the tail density; zeros may reflect a detection floor rather than true nulls.",
+      "evidence_for": "1/24 variant at 0.597; next best 0.063; median ~0.0026; CNGA alone carries ~80% of summed fitness.",
+      "falsifier": "If Round-2 random draws return several variants >0.1 (or >30% above 0.02), the rarity/heavy-tail claim is weakened.",
+      "id": "H1",
+      "prediction": "Fresh uniform random samples in Round 2 remain mostly <=0.02 with an occasional >0.05 hit; empirical zero fraction stays ~20-40%.",
+      "statement": "High-fitness variants (>=0.1) are rare on this landscape; the fitness distribution is heavy-tailed with a large null mass, so random draws mostly land near zero with rare spikes."
+    },
+    {
+      "evidence_against": "Unreplicated single point; plate/well artifacts cannot be excluded.",
+      "evidence_for": "Single measurement 0.597 is ~9.4x the runner-up; a draw this high implies proximity to a productive region rather than a random fluke of the tail.",
+      "falsifier": "Replicate measurement far below 0.4, or all/almost all single-mutant neighbors collapsing to <0.02, would reject the reproducible-peak reading.",
+      "id": "H2",
+      "prediction": "A substantial share of CNGA single-mutant neighbors retain fitness (0.05-0.6) with at least one direction possibly exceeding 0.597.",
+      "statement": "CNGA is a genuine reproducible high-fitness sequence near a local optimum, not an assay artifact."
+    },
+    {
+      "evidence_against": "Only 1-2 observations per residue at position 54; the literature prior favors W54; sampling may simply have missed good W54 backgrounds.",
+      "evidence_for": "Best (A54) and second-best (Q54) are both non-Trp; both observed W54 variants are near-zero.",
+      "falsifier": "A systematic position-54 swap scan showing W54 consistently >= A54/Q54 across all tested backgrounds rejects the context-dependence claim.",
+      "id": "H3",
+      "prediction": "A54->W in the CNGA background keeps or raises fitness (if W54 is still favored on good backgrounds) while W54 in other new backgrounds often stays low.",
+      "statement": "Position 54 is context-dependent: Trp54 is neither necessary nor sufficient for high fitness in this landscape (epistasis with positions 39-41)."
+    },
+    {
+      "evidence_against": "n=2 G41 observations; the two G41 variants share no other residue; the pattern was selected post-hoc after seeing the outlier.",
+      "evidence_for": "2/2 of the top variants are G41; all 22 non-G41 variants <=0.0148.",
+      "falsifier": "If G41 swap effects are within noise or inconsistent in direction across backgrounds, the association is coincidental, not mechanistic.",
+      "id": "H4",
+      "prediction": "G41->X swaps in CNGA and TDGQ backgrounds decrease fitness substantially; inserting G41 into low-fitness backgrounds produces only partial rescue.",
+      "statement": "G at position 41 is a candidate permissive/beneficial residue: both top hits share G41 while no non-G41 variant exceeds 0.0148."
+    },
+    {
+      "evidence_against": "Even weak models can coarsely rank (e.g., favor CNGA-like / G41 sequences); untested at n->48.",
+      "evidence_for": "Each position observed in only a handful of residues; one variant carries most of the signal; 29% exact zeros; any additive model will be dominated by the outlier.",
+      "falsifier": "If uncertainty-aware acquisition from n=24 to ~48 outperforms random by >3x hit rate, the fitted signal is stronger than assumed.",
+      "id": "H5",
+      "prediction": "Greedy surrogate top-10 acquisitions will contain many false positives (true fitness mostly <0.02) unless acquisition includes uncertainty/diversity terms.",
+      "statement": "At n=24 with one dominant outlier, surrogate/model ranking is too unstable to justify pure exploitation; inferred main effects will be confounded by CNGA and the G41 coincidence."
+    },
+    {
+      "evidence_against": "Exact zeros could be a measurement floor with small nonzero true values; n=24.",
+      "evidence_for": "7/24 exact zeros (29%) plus a tight near-zero mode; failures show no common residue at any single position.",
+      "falsifier": "If Round-2 random zeros drop below ~10%, the null mass estimate was inflated by measurement floor or sampling.",
+      "id": "H6",
+      "prediction": "Zero fraction in further random sampling remains ~20-40% and zeros remain dispersed across residue space.",
+      "statement": "A substantial fraction of sequence space is effectively non-functional (fitness at or below detection), consistent with strong multi-site constraints."
+    }
+  ],
+  "observations": [
+    "Best observed fitness is CNGA = 0.5971, ~9.4x above the second-best TDGQ = 0.0633; 22 of 24 variants are <=0.0148 (FCCE), so the non-CNGA tail is uniformly weak.",
+    "Fitness mass is extremely concentrated: CNGA contributes ~80% of the summed fitness (0.597 of 0.745); mean excluding CNGA is ~0.0064; median is ~0.0026.",
+    "The top two hits (CNGA, TDGQ) are the ONLY two sampled variants with G at position 41; every non-G41 variant is <=0.0148. Suggestive but n=2.",
+    "Both top hits carry non-Trp at position 54 (CNGA=A54, TDGQ=Q54); the two observed W54 variants (MDSW 0.0022, CPKW 0.0043) are among the weakest \u2014 tension with the literature 'Trp54 drives high fitness' prior in background-independent form.",
+    "Zeros and weak values show no single-position cause: zero variants share no common residue at any position, suggesting combinatorial/epistatic failure rather than one fatal residue.",
+    "ETAD and AQQG were unavailable and refilled within the same round; refill identities came from the same seeded random order."
+  ],
+  "recommended_tests": [
+    "CNGA single-mutant neighborhood, stratified across all four positions with varied residue chemistry (~12-20 assays): validates the peak (H2), maps local gradient, and seeds Round-3 exploitation.",
+    "Position-54 context scan: A54->W and 3-4 other residues in the CNGA background plus W54 controls in 2-3 weak backgrounds (~8-12 assays): discriminates H3.",
+    "G41 swap matrix: G41->X in CNGA and TDGQ, and X41->G in 2-3 low-fitness backgrounds (~8-12 assays): confirms or retires H4 cheaply.",
+    "Diversity/uncertainty arm across unseen residues at each position (~8-12 assays): keeps the next surrogate honest and prevents early model fixation on the outlier.",
+    "Random control arm (~6-8 draws) plus replicates of CNGA and 1-2 zeros (~2-3 assays): refines rarity and null-fraction estimates (H1/H6) and calibrates noise (H2).",
+    "Ranked questions for Planner: Q1 Is CNGA reproducible and how steep is its single-mutant neighborhood? Q2 Is G41 genuinely permissive or a n=2 coincidence? Q3 Does W54 remain favored within good backgrounds? Q4 How rare are variants >=0.1 and what is the true null fraction? Q5 Can an uncertainty-aware surrogate beat random at n~48?"
+  ],
+  "round": 1,
+  "run_id": "adaptive_omnigent_seed_000",
+  "strategy_implications": [
+    "Do NOT exploit the surrogate greedily at n=24: the fitted landscape will be dominated by the CNGA outlier and the n=2 G41 coincidence. Round 2 should be majority exploration: local probing of CNGA, targeted swap tests, and diversity coverage.",
+    "Do NOT prune candidate pools to W54 or other literature heuristics: such a filter would have excluded the current best (CNGA, A54). Keep position 54 unconstrained and let data adjudicate H3.",
+    "Treat G41 as a mild acquisition-weighting feature only (candidate hypothesis), while explicitly commissioning G41 swap tests so it is confirmed or retired quickly.",
+    "Include CNGA as a replicated control in Round-2 plates to calibrate assay noise vs. biological signal (directly tests H2).",
+    "Keep a modest random control arm and a diversity arm (unseen residues per position) so the baseline rarity/zero-fraction estimates (H1/H6) and surrogate coverage improve simultaneously.",
+    "Suggested Round-2 allocation shape (Planner to define exact identities): ~40-50% CNGA local neighborhood, ~20-25% targeted position-41/54 swaps, ~15-20% diversity coverage, ~10-15% random control + replicates."
+  ],
+  "uncertainties": [
+    "All residue-level patterns (G41, A54/Q54, weak W54) rest on 1-3 observations and are post-hoc conditioned on the outlier; they are candidates, not mechanisms.",
+    "Identity of the two refill replacements (for ETAD, AQQG) is unknown; unavailability is presumed technical, not fitness-informative.",
+    "Magnitude of assay noise and reproducibility is unknown; CNGA is unreplicated.",
+    "Whether 0.0 means true null or detection floor is unknown.",
+    "Whether the literature W54 prior transfers to this dataset's background/assay is unresolved; observed W54 variants are the weakest in sample."
+  ]
+}

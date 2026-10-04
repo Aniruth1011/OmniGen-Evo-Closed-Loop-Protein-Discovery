@@ -8,8 +8,7 @@ executor:
   use_responses: false
   config:
     harness: openai-agents
-    profile: omnievo
-  model: databricks-qwen3-next-80b-a3b-instruct
+  model: databricks-deepseek-v4-flash-0731
   auth:
     type: api_key
     api_key: ${OMNIEVO_DATABRICKS_TOKEN}
@@ -20,6 +19,23 @@ interaction:
   modalities:
     input: [text, file]
     output: [text]
+
+# Register sys_os_read/write/edit/shell for orchestration artifacts while
+# confining those tools to the staged agent workspace. The private GB1 oracle
+# remains in an unmounted sibling directory and is reachable only via the lab.
+os_env:
+  type: caller_process
+  cwd: .
+  sandbox:
+    type: darwin_seatbelt
+    write_paths:
+      - .
+    # Required for the narrow authenticated virtual-lab API on 127.0.0.1.
+    # The raw oracle remains outside the sandbox's readable filesystem.
+    allow_network: true
+    cwd_allow_hidden: []
+    cwd_hidden_scan_recursive: true
+    cwd_hidden_scan_overflow: error
 
 tools:
   agents:

@@ -33,7 +33,7 @@ The official ProteinGym v1.3 Wu 2016 GB1 assay has been downloaded and normalize
 It is intentionally not part of this repository. To reproduce the download and conversion from scratch:
 
 ```bash
-cd /Users/aniruthsundararajan/Downloads/Hacknation/gb1_omnigent
+# Run from the repository root.
 mkdir -p ../gb1_omnigent_private/{downloads,source,oracle}
 curl -fL --retry 3 \
   -o ../gb1_omnigent_private/downloads/DMS_ProteinGym_substitutions_v1.3.zip \
@@ -122,7 +122,7 @@ Do not put the raw dataset in DBFS, a Unity Catalog volume, the Git repository, 
 Create the token once:
 
 ```bash
-cd /Users/aniruthsundararajan/Downloads/Hacknation/gb1_omnigent
+# Run from the repository root.
 umask 077
 mkdir -p ../gb1_omnigent_private/lab_state
 python3 -c 'import secrets; print(secrets.token_urlsafe(48))' > ../gb1_omnigent_private/lab_token
@@ -143,7 +143,7 @@ omnievo serve-lab --host 127.0.0.1 --port 8765
 This terminal gets only the narrow service URL and token—not either private path:
 
 ```bash
-cd /Users/aniruthsundararajan/Downloads/Hacknation/gb1_omnigent
+# Run from the repository root.
 source .venv/bin/activate
 export OMNIEVO_LAB_URL='http://127.0.0.1:8765'
 export OMNIEVO_LAB_TOKEN="$(tr -d '\n' < "$PWD/../gb1_omnigent_private/lab_token")"

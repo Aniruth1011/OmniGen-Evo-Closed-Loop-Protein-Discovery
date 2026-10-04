@@ -1,0 +1,125 @@
+{
+  "blocking_failures": "none",
+  "briefing_for_root_scientist": "Round 4 delivered the run's decisive result: IYGV 4.3877 improves the best by +1.556 (2.05x final CV RMSE, clears the pre-committed >0.7 gap rule), found by EXPLOIT_MODEL's rank-4 pick (predicted 1.846) as a Hamming-2 double with strong positive epistasis; LOCAL_MUTATE's FNGA 3.2615 is a second raw improvement but within one RMSE of INGA. The run is fair and leakage-free (96/96, 24/round, 0 rejections, pre-committed rule applied). Mandatory qualifiers for any claim: (1) no replicate measurements exist \u2014 4.3877/3.2615/2.8315 are single-shot; (2) IYGV parses as Y40+V54 under our own naming convention, not Y39+V54 as final prose said \u2014 resolve before downstream design; (3) new_point_prediction_rmse was never logged; (4) the surrogate is rank-useful but magnitude-unreliable on Hamming-2+ (residual +2.54).",
+  "failed_components": [
+    "new_point_prediction_rmse never logged (R3 and R4) \u2014 surrogate external validity unquantified",
+    "Replication: 0 replicate measurements in the entire run; final best single-shot; rule's replicate prong unfulfilled by pool design",
+    "U-01 identity hygiene: 'pos39 Y' prose vs pos40 code parse; OBS-05 pos40 scan contaminated with pos41 values (INMA, INIA)",
+    "Surrogate magnitude calibration on Hamming-2+: residual +2.54 on the key pick; CV RMSE worsened with double data",
+    "Uncertainty/diversity arms added no decision value (expected; 2/24 slots)"
+  ],
+  "fairness_check": "pass",
+  "final_run_summary": "Run adaptive_omnigent_seed_000 completed 96/96 assays (4x24, 0 unavailable rejections) and improved the observed best from 2.8315 (INGA, R2) to 4.3877 (IYGV, R4), a +1.556 gap equal to ~2x the final CV RMSE that clears the pre-committed >0.7 acceptance rule; the hit came from the EXPLOIT_MODEL arm's 4th-ranked candidate (predicted 1.846), a Hamming-2 double showing strong positive epistasis (YxV +2.3/+2.5), while LOCAL_MUTATE supplied the best single (FNGA 3.2615, within noise of INGA). G41 essentiality was strengthened (L/K/F at pos41 all <=0.0303), H-01 (INGA peak) was falsified, and the zero-double-mutant blind spot was closed with sign-variable epistasis confirming singles-rank != combination-rank. The surrogate proved rank-useful but magnitude-blind (residual +2.54 on the key discovery; CV RMSE rose to 0.759), and the uncertainty/diversity arms returned ~0 as predicted. Defensible final claim: best observed fitness 4.3877 = IYGV (single replicate, identity parsing U-01: Y at pos40 per code convention vs pos39 per prose \u2014 positive-epistasis magnitude robust to the parse, partner position not); replication and a missing matrix cell are required before using 4.3877 for downstream design.",
+  "findings": [
+    {
+      "evidence": "Best improved 2.8315 -> 4.3877 (IYGV), gap +1.556 = 2.05x final CV RMSE (0.759) and 2.8x R3 CV RMSE (0.551). Pre-committed rule (gap > 0.7) HOLDS. But the replicate prong of the same rule was vacated by design: pools excluded measured sequences, so no replicate of IYGV (or INGA/INGV) exists; final best is a single-shot measurement.",
+      "severity": "high"
+    },
+    {
+      "evidence": "Surrogate magnitude failure on the discovery itself: IYGV predicted 1.846 (rank 4), observed 4.3877 -> residual +2.54 (~3.3x final CV RMSE). Ranking worked, magnitudes did not. Final CV RMSE rose 0.551 (n=72) -> 0.759 (n=96). new_point_prediction_rmse still None (never logged).",
+      "severity": "high"
+    },
+    {
+      "evidence": "U-01 identity ambiguity propagated: authoritative pre-committed convention (planner naming_note: letter1=pos39, letter2=pos40, letter3=pos41, letter4=pos54) parses IYGV as Y at POS40 (IYGA 2.4352 = Y40 single is the partner), while final prose says 'pos39 Y' (YNGA 2.6513). Positive-epistasis magnitude robust to the parse (+2.50 vs +2.28), partner position is not.",
+      "severity": "high"
+    },
+    {
+      "evidence": "Parsing contamination in final hypothesis report (OBS-05): 'pos40 scan ... M 1.1402, I 0.0028, ~870x spread' \u2014 INMA = M at pos41 and INIA = I at pos41, NOT pos40. Corrected pos40 set (n=9): N 2.8315 > Y 2.4352 > K 2.0137 > V 1.9130 > L 0.7183 > E 0.6130 > P 0.5096 > G 0.1679 > W 0.0153.",
+      "severity": "high"
+    },
+    {
+      "evidence": "FNGA 3.2615 (LOCAL_MUTATE) is a second raw improvement over 2.8315 but +0.43 < CV RMSE 0.759: not statistically resolvable vs INGA.",
+      "severity": "medium"
+    },
+    {
+      "evidence": "Sign-variable epistasis on the 39/40x54 axis: YxV +2.3/+2.5 (IYGV), FxV -1.65 (FNGV 1.0694 vs additive 2.72), KxV ~ -0.10 (IKGV 1.3680 vs 1.47), VxV +0.31 (IVGV 1.6780 vs 1.37). Singles-rank and combination-rank diverge sharply.",
+      "severity": "medium"
+    },
+    {
+      "evidence": "EXPLORE_UNCERTAIN (INKV 0.0044) and EXPLORE_DIVERSE (PYFV 0.0032) both ~floor in the final round; consistent with G41 essentiality (both carry pos41 substitutions) \u2014 cut 4->1 and 2->1 was correct ex post.",
+      "severity": "low"
+    },
+    {
+      "evidence": "Pool collapse 23/24 near INGA/INGV family + 1 guard (PYFV): acceptable in a terminal round; global-coverage claims unsupported.",
+      "severity": "low"
+    },
+    {
+      "evidence": "Budget/fairness integrity re-verified: 24/24 R4 (7 EXPLOIT/15 LOCAL/1 UNCERTAIN/1 DIVERSE), 96/96 cumulative, 0 unavailable rejections, no RANDOM_SAMPLE, no already-measured selections, no post-hoc protocol edits.",
+      "severity": "low"
+    }
+  ],
+  "hypothesis_updates": [
+    {
+      "id": "H-01",
+      "new_status": "REJECTED",
+      "reason": "IYGV +1.556 (2x RMSE) and FNGA 3.2615 both exceed 2.8315; Hamming-1 neighbors no longer verify the peak."
+    },
+    {
+      "id": "H-02",
+      "new_status": "FALSIFIED_AS_STATED -> REFRAMED",
+      "reason": "INGY 0.0720 < the 1.7 falsifier; INGW 0.2041, INGI 0.4801; only INGF 1.8449/INGM 1.5769 partial. Surviving claim: V54 as conditional synergy partner."
+    },
+    {
+      "id": "H-03",
+      "new_status": "SUPPORTED",
+      "reason": "IKGV 1.3680 / IVGV 1.6780 >= 1.0: K/V40+V54 retain fitness."
+    },
+    {
+      "id": "H-04",
+      "new_status": "SUPERSEDED_DIVERGENT",
+      "reason": "K/V partners in predicted 1.3-2.5; YxV positive epistasis +2.3/+2.5 >> additive 1.89-2.11 \u2014 surrogate Hamming-2 magnitudes wrong, ranking right."
+    },
+    {
+      "id": "H-05",
+      "new_status": "SUPPORTED",
+      "reason": "INLV 0.0303, INKV 0.0044, PYFV 0.0032 across varied contexts; M41 1.1402 best tolerated, still << G41."
+    },
+    {
+      "id": "H-06",
+      "new_status": "WEAKENED_CONTEXT_DEPENDENT",
+      "reason": "F39-A54 3.2615 (match), but F39-V54 1.0694 (epistasis -1.65) and W39-V54 0.0614 fail the >=1.5 prediction."
+    },
+    {
+      "id": "H-07",
+      "new_status": "SUPPORTED",
+      "reason": "PYFV 0.0032 ~floor; single distant guard confirmed."
+    },
+    {
+      "id": "H-08",
+      "new_status": "UNRESOLVED (risk realized)",
+      "reason": "No replicates measured; final best and all anchors remain single-shot."
+    },
+    {
+      "id": "H-09",
+      "new_status": "PROPOSED (corrected)",
+      "reason": "Y40 2.4352 second-best pos40 single and partner in IYGV 4.3877; must drop the I41 0.0028 datum; W40 0.0153/G40 0.1679/L40 0.7183 give true pos40 spread."
+    }
+  ],
+  "leakage_check": "pass",
+  "policy_change_recommended": true,
+  "recommended_change": [
+    "Allow replicate slots in candidate pools (or explicit re-selection of measured anchors) so the pre-committed replicate-verified selection rule is enforceable; currently it is vacuous by construction.",
+    "Require per-round new_point_prediction_rmse (aggregate + top-10 per-arm) before any round closes; retro-compute from proposal store if possible.",
+    "Mandate position-resolved labels (pos39/pos40/pos41/pos54) in every artifact; ban bare letter-code prose; resolve U-01 next run via IYGV replicate + missing matrix cells (YNGV, Y40x{A,V,M} etc.).",
+    "Surrogate reporting: report rank correlation and magnitude calibration separately; claims capped at 'rank-useful, magnitude-unreliable on Hamming-2+'.",
+    "Retain hypothesis-based allocation (EXPLOIT+LOCAL merged); it worked. Allocate >=3 replicate slots per round to top-1/top-2 in future runs."
+  ],
+  "required_repairs": [
+    "new_point_prediction_rmse was never logged (R3 and R4): compute and log per round; mandatory for final surrogate-validity section",
+    "Probe identity ambiguity U-01: IYGV parses as I39/Y40/G41/V54 under the pre-committed convention but prose says pos39 Y; also correct OBS-05 mislabeling (INMA/INIA are pos41, not pos40); standardize labels",
+    "No replicates anywhere in the run: final claim must explicitly state that 4.3877 (IYGV), 3.2615 (FNGA), 2.8315 (INGA) are single unreplicated measurements",
+    "Report the surrogate's key new-point residual (+2.54, IYGV) and CV RMSE rise 0.551->0.759; do not present CV RMSE as predictive calibration",
+    "Final report must quote the pre-committed acceptance rule (gap > 0.7; replicate-verified) and state which prongs were met (gap) and unmet (replication)"
+  ],
+  "round": 4,
+  "run_id": "adaptive_omnigent_seed_000",
+  "status": "WARN",
+  "successful_components": [
+    "EXPLOIT_MODEL IYGV 4.3877 at surrogate rank 4 (predicted 1.846) \u2014 the acquisition source that produced the improvement; only double clearing >0.7",
+    "LOCAL_MUTATE FNGA 3.2615 best single + dense pos39/40/54 mapping around INGA (21->~30 singles)",
+    "Zero-double blind spot closed: 6 Hamming-2 doubles measured (IKGV, IVGV, IYGV, INLV, FNGV, WNGV); K/V partners landed inside the pre-committed 1.3-2.5 window",
+    "G41 essentiality strengthened: 3 new pos41 contexts (L 0.0303, K 0.0044, F 0.0032) all near-floor; M41 (INMA 1.1402) best tolerated pos41 substitution, still << G41",
+    "Budget integrity: 24/24, 96/96, 0 unavailable; pre-committed >0.7 rule held; dead-residue exclusions respected"
+  ],
+  "verdict": "improvement-is-real-but-single-replicate; run claim passes with mandatory qualifiers"
+}

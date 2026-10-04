@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>OmniEvo Native Omnigent Trace</title><style>
+*{box-sizing:border-box} body{margin:0;background:#0B1020;color:#F5F7FF;font-family:Inter,system-ui,sans-serif;padding:34px}
+.wrap{max-width:1200px;margin:auto} h1{font-size:42px;margin:0} .sub{color:#A8B3CF;font-size:17px;margin:8px 0 28px}
+.status{display:flex;gap:12px;margin-bottom:25px} .pill{padding:8px 12px;border-radius:999px;background:#151D34;border:1px solid #33415F;color:#A8B3CF} .ok{color:#2DD4BF;border-color:#2DD4BF}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:stretch} .card{background:#151D34;border:1px solid #33415F;border-radius:16px;padding:20px;min-height:270px;position:relative}
+.card:not(:last-child):after{content:'→';position:absolute;right:-19px;top:45%;z-index:2;color:#F5F7FF;font-size:25px;font-weight:bold}
+.n{color:#8B7CF6;font-size:12px;font-weight:800;letter-spacing:.12em} h2{font-size:21px;margin:12px 0} .value{font-size:29px;font-weight:900;color:#2DD4BF;margin:16px 0} p,li{color:#A8B3CF;line-height:1.45;font-size:14px} code{color:#F4C95D} .footer{margin-top:24px;padding:18px;border-radius:14px;background:#10172a;color:#A8B3CF;display:flex;justify-content:space-between}
+.danger{color:#FF6B6B} a{color:#43A5FF} @media(max-width:900px){.flow{grid-template-columns:1fr}.card:not(:last-child):after{content:'↓';right:50%;top:auto;bottom:-25px}}
+</style></head><body><div class="wrap"><h1>Native Omnigent discovery transition</h1>
+<div class="sub">Round 3 evidence → critic → planner → budgeted lab tool → Round 4 measurement</div>
+<div class="status"><div class="pill ok">✓ 96/96 assays</div><div class="pill ok">✓ leakage check PASS</div><div class="pill">session a1fb…ee4d1</div><div class="pill">development seed 0</div></div>
+<div class="flow">
+<div class="card"><div class="n">01 · MEASUREMENTS</div><h2>Round 3 plateau</h2><div class="value">Best 2.831</div><p>Local ridge confirmed, but 24 new assays did not beat INGA.</p><p><code>round_03/measurements.csv</code></p></div>
+<div class="card"><div class="n">02 · SCIENTIFIC CRITIC</div><h2>Verdict: MODIFY</h2><div class="value">Change policy</div><p>Reduce low-yield uncertainty/diversity. Test local structure and the missing Hamming-2 interaction space.</p><p><code>round_03/critic_report.json</code></p></div>
+<div class="card"><div class="n">03 · HANDOFF</div><h2>Critic → Planner</h2><div class="value">HO-r04</div><p>Validated fairness and leakage clearance before the final 24 slots could be allocated.</p><p><code>omnigent_handoffs.jsonl</code></p></div>
+<div class="card"><div class="n">04 · EXPERIMENT PLANNER</div><h2>Round 4 allocation</h2><div class="value">15 local</div><p>Model exploit 7 · Local mutate 15 · Uncertainty 1 · Diversity 1</p><p><code>round_04/planner_decision.json</code></p></div>
+<div class="card"><div class="n">05 · VIRTUAL LAB</div><h2>24 measured</h2><div class="value">IYGV 4.388</div><p><code>execute_planner_round</code> returned the terminal best with no oracle leakage and no unavailable assays.</p><p><code>round_04/measurements.csv</code></p></div>
+</div>
+<div class="footer"><span>Full native transcript: <a href="../../runs/adaptive/omnigent_seed_000/omnigent_trace_round_04.json">omnigent_trace_round_04.json</a></span><span class="danger">Single development run • measurements unreplicated</span></div>
+</div></body></html>

@@ -1,0 +1,187 @@
+{
+  "allocation": {
+    "EXPLOIT_MODEL": 7,
+    "EXPLORE_DIVERSE": 1,
+    "EXPLORE_UNCERTAIN": 1,
+    "LOCAL_MUTATE": 15,
+    "RANDOM_SAMPLE": 0
+  },
+  "budget": 24,
+  "checks": {
+    "allocation_sum": 24,
+    "already_measured": false,
+    "count": 24,
+    "unique_sequences": true
+  },
+  "current_best_fitness": 2.8315,
+  "expected_learning": [
+    "First Hamming-2 double-mutant data (IKGV, IVGV, IYGV, INLV, FNGV, WNGV): closes the zero-double blind spot and calibrates epistasis for the surrogate.",
+    "Complete aromatic/tolerant scan at pos54 (Y/W/F/I/M) on the 2.8315 backbone \u2014 highest-prior shot at a new best.",
+    "pos39 W/F/Y and pos40 W/Y/L/G density refines the INGA neighborhood (21/76 singles measured -> ~30/76 after round).",
+    "INKV resolves whether pos41 tolerates anything beyond G (K41 unmeasured, V54 good).",
+    "Noise-aware final verdict: replicate-verified best with gap > 0.7 vs 2.8315, or INGA retained."
+  ],
+  "policy_change_from_previous_round": "EXPLOIT_MODEL 8->7 (-1), EXPLORE_UNCERTAIN 4->1 (-3), EXPLORE_DIVERSE 2->1 (-1), LOCAL_MUTATE 10->15 (+5), RANDOM_SAMPLE 0->0 (0)",
+  "policy_change_reason": [
+    "E-R3-NO-GAIN: Round 3 exploitation at model-mean ranks produced no gain; shift weight from model-ranked EXPLOIT to parent-fitness-prioritized LOCAL Hamming-1 around INGA (2.8315) and INGV (2.2863).",
+    "E-CV-NOISE: with +-0.55 noise floor, model ranks below the top few are uninformative; spend slots on high-prior beat candidates (pos54 aromatics, pos39 W/F, Hamming-2 doubles).",
+    "E-DBL-BLINDSPOT: zero measured double mutants; reserve slots for IKGV/IVGV (components measured >=1.9) to test additivity and potentially clear 2.8315.",
+    "E-P54-AROMATIC: WT Y54 and W54/F54 unmeasured on the 2.8315 backbone; INGY first (top prior), then INGW/INGF plus tolerated INGI/INGM.",
+    "E-UNCERTAIN-DEAD: uncertainty arm cut 4->1 because round-3 uncertainty slots yielded nothing and its top items carry measured-dead residues; retain exactly 1 near-plateau extreme (INKV: K41 unmeasured, V54 good).",
+    "E-DIVERSE-LOW-YIELD: diverse arm cut 2->1 in final round; keep exactly 1 clean distant guard (PYFV r2; rejected HRVH r1 due to measured-dead V41)."
+  ],
+  "primary_observations": [
+    "Round 3 (24 assays) produced no improvement: round best INGV 2.2863, IKGA 2.0137, IVGA 1.9130; all < best 2.8315.",
+    "Surrogate CV RMSE 0.551, Spearman 0.573 -> noise floor ~+-0.55; the 2.8315 vs 2.2863 gap is NOT statistically resolvable; neighbor confirmation required.",
+    "Pools exclude all 72 measured sequences (incl. INGA, INGV, IKGA, IVGA) -> direct replication impossible; use neighbor-confirmation and Hamming-2 plateau doubles.",
+    "Zero measured double mutants (largest blind spot); Hamming-2 doubles IKGV/IVGV/IYGV/INLV are the only available epistasis probes.",
+    "pos54 pocket tolerant: V/S/T measured >=1.7; aromatic ring (Y=WT, W, F) on ING* backbone unmeasured \u2014 strongest remaining shot at beating 2.8315.",
+    "Measured-dead at pos41 E/R/Q/V/T and pos54 K/R/P/D; uncertainty DEAD combos and HRVH (V41) excluded."
+  ],
+  "remaining_total_budget_before_round": 24,
+  "risks": [
+    "Single unreplicated 2.8315: if it is a noisy high outlier (+-0.55 floor), all 24 near-neighbor attempts may fail to clear it.",
+    "Epistasis may depress Hamming-2 doubles below additive expectation (components ~1.9-2.3); G41 near-essential may cap pos41 probes (INIA/INMA/INLV/INKV).",
+    "23/24 slots are near INGA/INGV neighborhood: minimal new global coverage; surrogate generalization gains limited in final round.",
+    "If the true peak is narrow (only INGA), most R4 returns land 0.6-2.3 and best stays 2.8315.",
+    "Guard reduced to 1 sequence (PYFV): diversity-derived model robustness no longer testable this round."
+  ],
+  "round": 4,
+  "round_budget": 24,
+  "run_id": "adaptive_omnigent_seed_000",
+  "selected_sequences": [
+    {
+      "sequence": "INGY",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 35
+    },
+    {
+      "sequence": "INGW",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 4
+    },
+    {
+      "sequence": "INGF",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 30
+    },
+    {
+      "sequence": "INGI",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 31
+    },
+    {
+      "sequence": "INGM",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 15
+    },
+    {
+      "sequence": "WNGV",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 98
+    },
+    {
+      "sequence": "FNGV",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 56
+    },
+    {
+      "sequence": "FNGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 27
+    },
+    {
+      "sequence": "YNGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 2
+    },
+    {
+      "sequence": "INIA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 16
+    },
+    {
+      "sequence": "INMA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 5
+    },
+    {
+      "sequence": "INWA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 1
+    },
+    {
+      "sequence": "IYGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 14
+    },
+    {
+      "sequence": "ILGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 3
+    },
+    {
+      "sequence": "IGGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 11
+    },
+    {
+      "sequence": "IKGV",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 1
+    },
+    {
+      "sequence": "IVGV",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 2
+    },
+    {
+      "sequence": "IYGV",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 4
+    },
+    {
+      "sequence": "IKGT",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 18
+    },
+    {
+      "sequence": "IKGS",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 20
+    },
+    {
+      "sequence": "IKGI",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 28
+    },
+    {
+      "sequence": "INLV",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 22
+    },
+    {
+      "sequence": "INKV",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 16
+    },
+    {
+      "sequence": "PYFV",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 2
+    }
+  ],
+  "selection_parameters": {
+    "dead_residue_exclusion": "Never combine measured-dead residues: pos41 E/R/Q/V/T, pos54 K/R/P/D; skip pool items INKA/INGE/INPA; reject HRVH r1 (V41) -> diversity guard = PYFV r2.",
+    "naming_note": "Pool convention letter1=pos39, letter2=pos40, letter3=pos41, letter4=pos54 (INGW=W54, INKV=K41, IKGV=K40+V54); INMA/INIA are M/I at pos41.",
+    "precommitted_final_selection_rule": "Declare a new best only if replicate-verified and gap > 0.7 vs 2.8315 (> noise floor 0.55); gaps < ~0.7 treated as unresolved ties -> INGA retained as best.",
+    "priority_order": "1) pos54 aromatics/tolerant on ING* (Y>W>F>I>M), 2) Hamming-2 doubles IKGV/IVGV, 3) pos39 W/F(+Y), 4) pos41 I/M/K/L (+V54), 5) pos40 W/Y/L/G pocket probes, 6) exactly 1 distant guard.",
+    "replicate_logic": "Direct replication impossible (anchors excluded from pools); use Hamming-1 neighbor confirmation around INGA/INGV and Hamming-2 plateau doubles instead.",
+    "source_ranks": "source_action + source_rank cited exactly as in runs/adaptive/omnigent_seed_000/round_03/candidate_pools.json."
+  },
+  "stop_conditions": [
+    "Final round: all 24 slots spent; no early stop; run halts at end of round 4.",
+    "Pre-committed accept rule: designate new best only if replicate-confirmed measurement exceeds 2.8315 by > 0.7; otherwise report INGA 2.8315 as best.",
+    "Terminate adaptive loop after round 4 regardless of outcomes (budget exhausted; preregistration fixed)."
+  ]
+}

@@ -17,3 +17,11 @@ private_oracle/
 runs/**/candidate_scores.npz
 artifacts/figures/*.png
 
+# Local Omnigent packaging output; rebuild with scripts/build_agent_bundle.py.
+omnievo-scientific-director-*.tar.gz
+
+# Preserve the completed native Omnigent demo run, but not the earlier
+# root-authored development run or malformed nested artifacts from old tooling.
+runs/adaptive/seed_000/
+runs/**/round_*/round_*/
+runs/**/round_*/assay_ledger.jsonl

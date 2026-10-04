@@ -1,0 +1,27 @@
+{
+  "artifacts": {
+    "candidate_scores": "runs/adaptive/omnigent_seed_000/round_04/candidate_scores.npz",
+    "model": "runs/adaptive/omnigent_seed_000/round_04/surrogate.joblib"
+  },
+  "diagnostics": {
+    "caveat": "Diagnostics use observed assays only; ensemble spread is not calibrated posterior uncertainty.",
+    "cv_folds": 5,
+    "observed_cv_rmse": 0.7588089650653285,
+    "observed_cv_spearman_rank_proxy": 0.6534997287032013
+  },
+  "encoding": "4x20 one-hot (80 features)",
+  "hyperparameters": {
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "n_estimators": 128,
+    "n_jobs": -1,
+    "random_state": 0
+  },
+  "model_family": "ExtraTreesRegressor",
+  "round": 4,
+  "run_id": "adaptive_omnigent_seed_000",
+  "seed": 0,
+  "train_n": 96,
+  "uncertainty_method": "standard deviation across ExtraTrees estimators",
+  "warnings": []
+}

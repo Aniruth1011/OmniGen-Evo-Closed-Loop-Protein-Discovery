@@ -1,0 +1,97 @@
+{
+  "hypotheses": [
+    {
+      "evidence_against": "Tiny sampled fraction; CIGA (I40)=0.5143 shows N40 not required at moderate fitness.",
+      "evidence_for": "All top variants carry N40; N40->I/M/P on CNGA reduced fitness to 0.5143/0.1851/0.0441.",
+      "falsifier": "A non-N40 variant exceeding 1.0 (or 2.8315).",
+      "id": "H-1",
+      "prediction": "Future variants above ~1.0 carry N40; N40->D/A/S on INGA scores below INGA.",
+      "statement": "Position-40 asparagine is a strong enabler, possibly near-necessary, for high fitness in the explored region."
+    },
+    {
+      "evidence_against": "Thin sample (5/20 residues); C outperforming Q argues axis not purely steric.",
+      "evidence_for": "Five measured residues rank by bulk/hydrophobicity.",
+      "falsifier": "All of L/M/F/V/Y scoring <= QNGA (0.3056).",
+      "id": "H-2",
+      "prediction": "Untested large/aliphatic L, M, F, V, Y at position 39 on NGA score >= WNGA.",
+      "statement": "Position-39 fitness on NGA backbone follows large-aliphatic preference (I >> W > C > Q > D)."
+    },
+    {
+      "evidence_against": "Single backbone pair observed; backbone-specific epistasis possible.",
+      "evidence_for": "S41 improved CNGA (CNSA 0.9936); A41 is best on K39 backbones.",
+      "falsifier": "INSA <= INGA.",
+      "id": "H-3",
+      "prediction": "INSA > INGA (2.8315) and WNSA > WNGA (0.9770).",
+      "statement": "G41->S benefit transfers to other N40 backbones, including INGA."
+    },
+    {
+      "evidence_against": "CV Spearman on nearly-flat sample is weak basis for top-of-distribution accuracy.",
+      "evidence_for": "Exploitation backbone consensus found 2 improvements; DNGA=0.0118 shows misranking within a residue series.",
+      "falsifier": "Zero round-3 exploitation picks exceeding 0.6.",
+      "id": "H-4",
+      "prediction": "Round-3 model picks cluster on N40/G41/A54 tails; >=2 of 4 exceed 0.6.",
+      "statement": "ExtraTrees captures backbone-level structure (N40/G41/A54) but is not calibrated at residue level."
+    },
+    {
+      "evidence_against": "K39 never tested on G41 backbone.",
+      "evidence_for": "All nine K39 variants <= 0.3322 across eight position-41 residues.",
+      "falsifier": "A K39 variant scoring above 0.6.",
+      "id": "H-5",
+      "prediction": "Any K39 variant on NGA backbone scores below 0.5.",
+      "statement": "K39 is strongly deleterious; the uncertainty-selected K-region is a low-fitness plateau."
+    },
+    {
+      "evidence_against": "Only one position-54 comparison; V54 untested on high-fitness backbones.",
+      "evidence_for": "A54->I reduced fitness 0.5971->0.2835; all exploitation picks carried A54.",
+      "falsifier": "A position-54 substitution on INGA (e.g., INGV) exceeding 2.8315.",
+      "id": "H-6",
+      "prediction": "Position-54 series on INGA (V,S,G,T,N) peaks at A or S, none exceeding INGA.",
+      "statement": "Position 54 favors small residues in this region (A > I on CNGA); INGA A54 near optimum."
+    },
+    {
+      "evidence_against": "Distance >=2 regions essentially unsampled.",
+      "evidence_for": "Round-1 flatness with one outlier; 4.7x jump at Hamming distance 1 from CNGA.",
+      "falsifier": "Several distance>=2 variants exceeding 1.0.",
+      "id": "H-7",
+      "prediction": "Measured fitness decays with Hamming distance from INGA; random distance>=2 probes mostly < 0.3.",
+      "statement": "Landscape is sparse and rugged; best found one mutation from round-1 best."
+    }
+  ],
+  "observations": [
+    "R1: Round-1 random init (24 assays) nearly flat, 22/24 <= 0.0148, ~7 zeros, single outlier CNGA=0.5971.",
+    "R2: EXPLOIT_MODEL (4 assays) delivered WNGA=0.9770 and new best INGA=2.8315 (4.7x CNGA).",
+    "R3: LOCAL_MUTATE around CNGA gave CNSA=0.9936 (G41->S, +0.40 over parent); CIGA 0.5143, CNGI 0.2835, CMGA 0.1851, CPGA 0.0441, CNQA 0.0152 all lower.",
+    "R4: EXPLORE_UNCERTAIN (8 assays, K39-x41-A54 series) gave 0 improvements; best KNAA=0.3322, other 7 <= 0.0449.",
+    "R5: EXPLORE_DIVERSE (6 assays) gave 0 improvements, all <= 0.0072; GWHC rejected UNAVAILABLE.",
+    "R6: All top-4 variants carry N40 (INGA 2.8315, CNSA 0.9936, WNGA 0.9770, CNGA 0.5971).",
+    "R7: Position-39 fitness on NGA backbone: I(2.8315) > W(0.9770) > C(0.5971) > Q(0.3056) > D(0.0118).",
+    "R8: Position 41 prefers small residues: A41 best on K39 backbones; G41->S improved CNGA; G41->Q crashed to 0.0152.",
+    "R9: Surrogate n=48 ExtraTrees: CV RMSE 0.434, Spearman 0.533 (moderate rank accuracy, poor absolute calibration)."
+  ],
+  "recommended_tests": [
+    "Q1 (~9): untested position-39 residues on NGA (L,M,F,V,Y,S,T,A) plus INSA.",
+    "Q2 (6-8): Hamming-1 neighbors of INGA via re-parented LOCAL_MUTATE (LNGA/MNGA/FNGA; INSA/INAA; INGV/INGS).",
+    "Q3 (4): position-54 series on INGA (INGV, INGS, INGT, INGN).",
+    "Q4 (3): N40 perturbations on I39 backbone (IDGA, IAGA, ISGA).",
+    "Q5 (2-4): informed diversity probes at 39 on D40 backbones (LDGV/WDGV-style).",
+    "Q6: Defer formal INGA replicate to round 4."
+  ],
+  "round": 2,
+  "run_id": "adaptive_omnigent_seed_000",
+  "strategy_implications": [
+    "S-1: Re-parent LOCAL_MUTATE onto INGA in round 3.",
+    "S-2: Convert most EXPLORE_UNCERTAIN budget into targeted one-position sweeps on the INGA backbone.",
+    "S-3: Keep EXPLORE_DIVERSE small (~4) and informed (large-aliphatic at 39 on non-N40 tails).",
+    "S-4: Map the INGA peak via tight neighbors this round; defer formal replicate to round 4.",
+    "S-5: Use surrogate strictly as ranker within model-chosen clusters, not absolute-fitness gatekeeper."
+  ],
+  "uncertainties": [
+    "U-1: INGA=2.8315 is a single unreplicated measurement, could be an assay outlier.",
+    "U-2: Sampling confounded: all exploitation picks carried N40/G41/A54.",
+    "U-3: Only 5/20 residues tested at position 39 on NGA backbone.",
+    "U-4: Surrogate CV metrics computed on almost-flat sample.",
+    "U-5: GWHC UNAVAILABLE rejection flags unknown assay-service constraint.",
+    "U-6: Epistasis between position 41 and backbone untested.",
+    "U-7: WT-background numbering assumption not independently verified."
+  ]
+}

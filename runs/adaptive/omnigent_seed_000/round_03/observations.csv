@@ -1,0 +1,73 @@
+round,assay_index_global,sequence,fitness,source_action,proposal_agent,planner_batch_id,source_rank,model_score,model_uncertainty,distance_to_best,parent,proposal_metadata,measured_at
+1,1,CTEE,0.00956104656318,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,1,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611363+00:00
+1,2,MDSW,0.00216666667835,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,2,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611525+00:00
+1,3,CERL,0.00454577238223,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,3,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611542+00:00
+1,4,CPKW,0.00428255210642,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,4,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611560+00:00
+1,5,EMWN,0.0,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,5,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611573+00:00
+1,6,TDGQ,0.063250000341,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,6,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611583+00:00
+1,7,FYCY,0.00945114947625,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,7,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611591+00:00
+1,8,TMEF,0.0,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,8,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611599+00:00
+1,9,DRIN,0.0112636986909,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,9,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611607+00:00
+1,10,FEMR,0.00527083336175,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,10,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611615+00:00
+1,11,CQKE,0.0,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,11,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611630+00:00
+1,12,SHIY,0.00316859346602,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,12,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611639+00:00
+1,13,QKPM,0.00264814816243,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,13,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611647+00:00
+1,14,NNRM,0.0,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,14,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611662+00:00
+1,15,LRMR,0.00234760886348,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,15,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611673+00:00
+1,16,HSRK,0.00244717263224,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,17,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611710+00:00
+1,17,MPYE,0.0,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,18,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611725+00:00
+1,18,CNGA,0.597071201032,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,19,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611734+00:00
+1,19,HPWG,0.00156619048463,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,20,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611742+00:00
+1,20,CGSM,0.00913611116037,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,21,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611755+00:00
+1,21,KALD,0.0,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,22,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611763+00:00
+1,22,YTIE,0.0,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-1,24,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.611777+00:00
+1,23,TSSP,0.00232668365714,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-2,25,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.616141+00:00
+1,24,FCCE,0.0148153153952,RANDOM_SAMPLE,unknown,adaptive_omnigent_seed_000-common-init-2,26,,,,,"{'score': None, 'score_definition': 'seeded_uniform_order_over_theoretical_space'}",2026-10-04T03:45:41.616162+00:00
+2,25,DNGA,0.0118374862211,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,1,,,,,{},2026-10-04T03:52:47.138664+00:00
+2,26,QNGA,0.305598640219,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,2,,,,,{},2026-10-04T03:52:47.138696+00:00
+2,27,WNGA,0.976953731721,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,3,,,,,{},2026-10-04T03:52:47.138707+00:00
+2,28,INGA,2.83147206953,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,4,,,,,{},2026-10-04T03:52:47.138717+00:00
+2,29,GVVC,0.000411536538755,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,2,,,,,{},2026-10-04T03:52:47.143587+00:00
+2,30,RVAH,0.00274083334811,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,3,,,,,{},2026-10-04T03:52:47.143610+00:00
+2,31,RVHH,0.00295393894331,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,4,,,,,{},2026-10-04T03:52:47.143621+00:00
+2,32,ALNS,0.0,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,5,,,,,{},2026-10-04T03:52:47.143630+00:00
+2,33,PLDT,0.00259931508251,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,6,,,,,{},2026-10-04T03:52:47.143638+00:00
+2,34,AFAI,0.00721271933713,EXPLORE_DIVERSE,exploration-specialist,adaptive_omnigent_seed_000-r02-explore_diverse-2,7,,,4,,"{'distance_to_observed': 4, 'score': 4, 'score_definition': 'minimum_hamming_distance_to_observed'}",2026-10-04T03:52:47.147585+00:00
+2,35,KNLA,0.030334183837,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,1,,,,,{},2026-10-04T03:52:47.150828+00:00
+2,36,KNDA,0.00628871896316,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,2,,,,,{},2026-10-04T03:52:47.150850+00:00
+2,37,KNAA,0.332231401423,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,3,,,,,{},2026-10-04T03:52:47.150859+00:00
+2,38,KNTA,0.000839458912132,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,4,,,,,{},2026-10-04T03:52:47.150867+00:00
+2,39,KNNA,0.00183333334322,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,5,,,,,{},2026-10-04T03:52:47.150875+00:00
+2,40,KNQA,0.000935438002768,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,6,,,,,{},2026-10-04T03:52:47.150882+00:00
+2,41,KNVA,0.00296146228861,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,7,,,,,{},2026-10-04T03:52:47.150890+00:00
+2,42,KNFA,0.0448847273036,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,8,,,,,{},2026-10-04T03:52:47.150897+00:00
+2,43,CNSA,0.993610058939,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,1,,,,,{},2026-10-04T03:52:47.154449+00:00
+2,44,CIGA,0.514252954321,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,2,,,,,{},2026-10-04T03:52:47.154469+00:00
+2,45,CNGI,0.28351126279,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,3,,,,,{},2026-10-04T03:52:47.154480+00:00
+2,46,CNQA,0.015226851934,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,4,,,,,{},2026-10-04T03:52:47.154489+00:00
+2,47,CMGA,0.185095239093,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,5,,,,,{},2026-10-04T03:52:47.154507+00:00
+2,48,CPGA,0.0441400552965,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,6,,,,,{},2026-10-04T03:52:47.154521+00:00
+3,49,INGL,0.81982244221,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,1,,,,,{},2026-10-04T04:25:04.730663+00:00
+3,50,INGG,0.785653650069,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,2,,,,,{},2026-10-04T04:25:04.730695+00:00
+3,51,INGK,0.00354928059468,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,3,,,,,{},2026-10-04T04:25:04.730706+00:00
+3,52,INGV,2.28630706938,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,4,,,,,{},2026-10-04T04:25:04.730722+00:00
+3,53,INGP,0.0185132806627,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,5,,,,,{},2026-10-04T04:25:04.730731+00:00
+3,54,INGS,1.72210615414,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,6,,,,,{},2026-10-04T04:25:04.730738+00:00
+3,55,INGD,0.0978869052897,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,7,,,,,{},2026-10-04T04:25:04.730746+00:00
+3,56,INGR,0.00357811142051,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r03-exploit_model-1,8,,,,,{},2026-10-04T04:25:04.730756+00:00
+3,57,WSFW,0.0143262265788,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r03-explore_diverse-1,1,,,,,{},2026-10-04T04:25:04.736713+00:00
+3,58,LTKP,0.00175133121285,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r03-explore_diverse-1,2,,,,,{},2026-10-04T04:25:04.736745+00:00
+3,59,IPGA,0.50964005877,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r03-explore_uncertain-1,1,,,,,{},2026-10-04T04:25:04.738908+00:00
+3,60,INNA,0.642552983597,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r03-explore_uncertain-1,2,,,,,{},2026-10-04T04:25:04.738929+00:00
+3,61,INVA,0.0455878974737,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r03-explore_uncertain-1,3,,,,,{},2026-10-04T04:25:04.738940+00:00
+3,62,INQA,0.00158429673301,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r03-explore_uncertain-1,4,,,,,{},2026-10-04T04:25:04.738948+00:00
+3,63,INLA,1.03532863533,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,1,,,,,{},2026-10-04T04:25:04.741972+00:00
+3,64,IEGA,0.612963544972,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,2,,,,,{},2026-10-04T04:25:04.741993+00:00
+3,65,INEA,0.00229839274475,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,3,,,,,{},2026-10-04T04:25:04.742003+00:00
+3,66,INGT,1.71846917827,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,4,,,,,{},2026-10-04T04:25:04.742011+00:00
+3,67,INTA,0.0707940367166,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,5,,,,,{},2026-10-04T04:25:04.742019+00:00
+3,68,INYA,0.408461125312,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,6,,,,,{},2026-10-04T04:25:04.742027+00:00
+3,69,IVGA,1.91296776708,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,8,,,,,{},2026-10-04T04:25:04.742035+00:00
+3,70,INRA,0.0198455643601,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,9,,,,,{},2026-10-04T04:25:04.742042+00:00
+3,71,IKGA,2.01374779651,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,10,,,,,{},2026-10-04T04:25:04.742050+00:00
+3,72,INGQ,0.215107691873,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r03-local_mutate-1,11,,,,,{},2026-10-04T04:25:04.742058+00:00

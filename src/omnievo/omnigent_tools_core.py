@@ -11,15 +11,6 @@ import os
 from pathlib import Path
 from typing import Any
 
-try:
-    from omnigent_client import tool as _tool
-except ImportError:  # Unit tests do not require the Omnigent runtime package.
-    def _tool(function=None, **_kwargs):
-        def decorate(target):
-            return target
-
-        return decorate if function is None else function
-
 from omnievo.artifacts import (
     append_jsonl as _append_jsonl,
     timestamp as _timestamp,
@@ -58,7 +49,13 @@ __all__ = [
 
 
 def _client() -> _LabClient:
-    return _LabClient(os.environ["OMNIEVO_LAB_URL"], os.environ["OMNIEVO_LAB_TOKEN"])
+    # OMNIGENT_* survives the CLI -> daemon boundary; the legacy OMNIEVO_*
+    # names remain supported for direct Python and test execution.
+    url = os.environ.get("OMNIGENT_LAB_URL", os.environ.get("OMNIEVO_LAB_URL"))
+    token = os.environ.get("OMNIGENT_LAB_TOKEN", os.environ.get("OMNIEVO_LAB_TOKEN"))
+    if not url or not token:
+        raise RuntimeError("authenticated virtual-lab client configuration is unavailable")
+    return _LabClient(url, token)
 
 
 def _load_structured(path: str | Path) -> Any:
@@ -85,13 +82,11 @@ def _safe_artifact_path(path: str | Path) -> Path:
     return destination
 
 
-@_tool(strict=False)
 def lab_status(run_id: str) -> dict[str, Any]:
     """Return assay counts and remaining budget; never returns oracle-wide data."""
     return _client().status(run_id)
 
 
-@_tool(strict=False)
 def initialize_adaptive_run(run_id: str, seed: int, run_dir: str) -> dict[str, Any]:
     """Create an adaptive run and execute its common, paired Round-1 initialization."""
     client = _client()
@@ -111,15 +106,25 @@ def initialize_adaptive_run(run_id: str, seed: int, run_dir: str) -> dict[str, A
             "initialization_candidates": str(Path(run_dir) / "initialization_candidates.json"),
         },
     )
-    return _execute_common_initialization(
+    result = _execute_common_initialization(
         client,
         run_id,
         candidates,
         run_dir,
     )
+    # Make the terminal condition impossible to confuse with completion of a
+    # single round. The run is complete only after 96 successful assays.
+    status = result["status"]
+    result["run_status"] = status["status"]
+    result["terminal_condition_met"] = (
+        status["status"] == "COMPLETE" and status["successful_assays"] == 96
+    )
+    result["required_next_action"] = (
+        "FINALIZE" if result["terminal_condition_met"] else "ANALYZE_ROUND_1_THEN_PLAN_ROUND_2"
+    )
+    return result
 
 
-@_tool(strict=False)
 def fit_observed_surrogate(
     run_id: str, round_number: int, seed: int, round_dir: str
 ) -> dict[str, Any]:
@@ -133,7 +138,6 @@ def fit_observed_surrogate(
     )
 
 
-@_tool(strict=False)
 def generate_all_candidate_pools(
     run_id: str,
     round_number: int,
@@ -164,7 +168,6 @@ def generate_all_candidate_pools(
     }
 
 
-@_tool(strict=False)
 def prepare_critic_input(run_id: str, round_number: int, output_path: str) -> dict[str, Any]:
     """Create an observed-data-only diagnostic packet for the Scientific Critic."""
     summary = _summarize_round(_client().observations(run_id), round_number)
@@ -172,7 +175,6 @@ def prepare_critic_input(run_id: str, round_number: int, output_path: str) -> di
     return {"artifact": output_path, **summary}
 
 
-@_tool(strict=False)
 def save_hypothesis_report(
     run_id: str, round_number: int, report: dict[str, Any], output_path: str
 ) -> dict[str, Any]:
@@ -199,7 +201,6 @@ def save_hypothesis_report(
     return {"artifact": str(destination), "status": "saved"}
 
 
-@_tool(strict=False)
 def save_critic_report(
     run_id: str, round_number: int, report: dict[str, Any], output_path: str
 ) -> dict[str, Any]:
@@ -229,7 +230,6 @@ def save_critic_report(
     return {"artifact": str(destination), "status": status}
 
 
-@_tool(strict=False)
 def save_planner_decision(
     run_id: str, round_number: int, decision: dict[str, Any], output_path: str
 ) -> dict[str, Any]:
@@ -255,7 +255,6 @@ def save_planner_decision(
     return {"artifact": str(destination), "allocation": value["allocation"], "status": "saved"}
 
 
-@_tool(strict=False)
 def record_critic_to_planner_handoff(
     run_id: str,
     planner_round: int,
@@ -290,7 +289,6 @@ def record_critic_to_planner_handoff(
     return handoff
 
 
-@_tool(strict=False)
 def execute_planner_round(
     run_id: str,
     round_number: int,
@@ -307,6 +305,12 @@ def execute_planner_round(
     if round_number not in {2, 3, 4}:
         raise ValueError("adaptive planner rounds must be 2, 3, or 4")
     record_critic_to_planner_handoff(run_id, round_number, critic_report_path)
+    # The protocol function expects the run root and creates round_XX itself.
+    # Normalize a common agent mistake so results never land in
+    # round_XX/round_XX and the canonical assay ledger remains complete.
+    normalized_run_dir = Path(run_dir)
+    if normalized_run_dir.name == f"round_{round_number:02d}":
+        normalized_run_dir = normalized_run_dir.parent
     client = _client()
     observations = client.observations(run_id)
     decision = _load_structured(planner_decision_path)
@@ -325,7 +329,7 @@ def execute_planner_round(
         round_number,
         decision,
         fallbacks,
-        run_dir,
+        normalized_run_dir,
     )
     _append_jsonl(
         "logs/tool_calls.jsonl",

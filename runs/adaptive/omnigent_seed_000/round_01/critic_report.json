@@ -1,0 +1,75 @@
+{
+  "failed_components": [
+    "Acquisition sources: not yet exercised (N/A this round, not a failure)",
+    "Surrogate quality: unmeasurable with zero held-out acquisition points"
+  ],
+  "fairness_check": "pass",
+  "findings": [
+    {
+      "evidence": "24/24 assays used this round, 72 remaining \u2014 budget respected.",
+      "severity": "info"
+    },
+    {
+      "evidence": "All 24 assays attributed to RANDOM_SAMPLE as preregistered for the init round; no acquisition source exercised yet.",
+      "severity": "info"
+    },
+    {
+      "evidence": "improved_best=True; random init found a strong candidate (CNGA, 0.5971).",
+      "severity": "info"
+    },
+    {
+      "evidence": "Best 0.5971 vs mean 0.031 over 24 random points \u2014 extreme skew; the peak should not be trusted until its neighborhood is sampled.",
+      "severity": "warn"
+    },
+    {
+      "evidence": "No surrogate-tested point exists yet; any claim that model-based search outperforms random is untested. Surrogate must be calibrated on the 24 observed points before exploitation share is raised.",
+      "severity": "warn"
+    },
+    {
+      "evidence": "Leakage inputs restricted to observed measurements only; WT=1.0 applied as prior knowledge without consuming an assay \u2014 acceptable.",
+      "severity": "info"
+    },
+    {
+      "evidence": "Initialization is the preregistered common seeded random init matching paired baselines \u2014 no fairness violation.",
+      "severity": "info"
+    }
+  ],
+  "hypothesis_updates": [
+    {
+      "id": "h_sparse_high_fitness",
+      "new_status": "strengthened"
+    },
+    {
+      "id": "h_single_peak_dominance",
+      "new_status": "tentative"
+    },
+    {
+      "id": "h_surrogate_superiority",
+      "new_status": "untested"
+    },
+    {
+      "id": "h_noise_floor_0_03",
+      "new_status": "assessed"
+    }
+  ],
+  "leakage_check": "pass",
+  "policy_change_recommended": true,
+  "recommended_change": [
+    "Round 2: train the surrogate on the 24 observed points and run calibration checks against the random-sample outcomes before trusting its predictions.",
+    "Allocate a modest model-driven share concentrated around the 0.5971 candidate (local refinement probe), with exploration (uncertainty + diversity) carrying the majority of the round, per surrogate-modeler advice.",
+    "Sample the CNGA Hamming-1 neighborhood to confirm it is a real peak rather than a random fluke.",
+    "Record per-acquisition-source attribution from Round 2 onward so improvement provenance is auditable.",
+    "Evidence that would justify raising the exploitation share beyond ~30%: surrogate OOS calibration tracking observed values AND neighbor sampling confirming the 0.5971 peak is reproducible. Evidence that would justify keeping exploration >=50%: surrogate failing OOS calibration or neighbors collapsing toward the 0.031 mean."
+  ],
+  "required_repairs": [],
+  "round": 1,
+  "run_id": "adaptive_omnigent_seed_000",
+  "status": "WARN",
+  "successful_components": [
+    "Random initialization executed as preregistered",
+    "Budget discipline (24/24, no over-reveal)",
+    "improved_best=True with a strong candidate at 0.5971",
+    "Clean leakage and fairness posture entering the model-based phase"
+  ],
+  "verdict": "modify"
+}
