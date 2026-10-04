@@ -1,0 +1,48 @@
+{
+  "action_yield": {
+    "EXPLOIT_MODEL": {
+      "best_fitness": 4.38774529032,
+      "improvements_over_previous_best": 1,
+      "mean_fitness": 1.4513100213445287,
+      "n": 7,
+      "new_point_prediction_rmse": null
+    },
+    "EXPLORE_DIVERSE": {
+      "best_fitness": 0.00324358976108,
+      "improvements_over_previous_best": 0,
+      "mean_fitness": 0.00324358976108,
+      "n": 1,
+      "new_point_prediction_rmse": null
+    },
+    "EXPLORE_UNCERTAIN": {
+      "best_fitness": 0.00437367023635,
+      "improvements_over_previous_best": 0,
+      "mean_fitness": 0.00437367023635,
+      "n": 1,
+      "new_point_prediction_rmse": null
+    },
+    "LOCAL_MUTATE": {
+      "best_fitness": 3.26153887436,
+      "improvements_over_previous_best": 1,
+      "mean_fitness": 1.0467682319872966,
+      "n": 15,
+      "new_point_prediction_rmse": null
+    }
+  },
+  "assays_in_round": 24,
+  "assays_total": 96,
+  "best_after": 4.38774529032,
+  "best_before": 2.83147206953,
+  "improved_best": true,
+  "leakage_inputs": "observed_measurements_and_proposal_metadata_only",
+  "questions_for_critic": [
+    "Which source produced improvements relative to the entering best?",
+    "Did new-point prediction error improve or deteriorate?",
+    "Did uncertainty sampling provide decision-relevant information?",
+    "Are local candidates concentrated around one parent or plateau?",
+    "Does this evidence justify changing allocation next round?"
+  ],
+  "remaining_budget": 0,
+  "round": 4,
+  "round_best": 4.38774529032
+}

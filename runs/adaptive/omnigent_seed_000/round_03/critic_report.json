@@ -1,0 +1,146 @@
+{
+  "briefing_for_planner": "Round 3 was a clean, protocol-respecting round that produced no improvement \u2014 consistent with a noise-limited plateau rather than a dead end: the 2.8315 vs 2.2863 gap is smaller than one CV RMSE, every anchor is a single measurement, and 55/76 single mutants plus every double mutant remain unmeasured. Do not retain the 8/10/4/2 allocation or read arm-yield means as signal. For the final 24: replicate INGA, INGV, IKGA first and gate everything else on the outcome; spend the majority on high-prior beat candidates \u2014 pos54 aromatics (INGY first, WT Y54), pos39 W39/F39, pos41 F/I/M, and 1-2 plateau doubles (IKGV/IVGV); keep exactly one distant-diversity guard; cap uncertainty monitoring at <=2 near-plateau extremes; never combine measured-dead residues; pre-commit the final-selection rule; log new-point prediction error.",
+  "change_justified": true,
+  "failed_components": [
+    "EXPLORE_UNCERTAIN (low yield; extremes in implausible space; 3/4 near-waste)",
+    "Surrogate new-point validation (new_point_prediction_rmse missing)",
+    "Spatial-arm redundancy (EXPLOIT = LOCAL in Hamming-1 shell)",
+    "No double-mutant probing despite surrogate top pool pointing there"
+  ],
+  "fairness_check": "pass",
+  "findings": [
+    {
+      "evidence": "Best unchanged (2.8315); 21 single mutants measured, none exceed it \u2014 but 55/76 INGA singles, pos39, pos54 aromatics, and ALL double mutants remain unmeasured. 'INGA is a local peak' is an absence-of-evidence claim, not confirmation.",
+      "severity": "high"
+    },
+    {
+      "evidence": "INGA 2.8315 vs INGV 2.2863 gap 0.545 < CV RMSE 0.551; all anchors single-replicate. Any final claim resting on 2.8315 is fragile.",
+      "severity": "high"
+    },
+    {
+      "evidence": "new_point_prediction_rmse None \u2014 surrogate error on newly revealed points never logged.",
+      "severity": "medium"
+    },
+    {
+      "evidence": "EXPLOIT_MODEL (pos54 ING*) and LOCAL_MUTATE (pos40/41/54 ING*) were both INGA Hamming-1 sweeps; 16/24 assays in one spatial shell. Per-arm yield comparison (0.717 vs 0.801) is not a meaningful signal.",
+      "severity": "medium"
+    },
+    {
+      "evidence": "EXPLORE_UNCERTAIN mean 0.300, best 0.6426; uncertainty extremes in implausible space; 3 of 4 assays near-waste.",
+      "severity": "medium"
+    },
+    {
+      "evidence": "DIVERSE probes at floor (WSFW 0.0143, LTKP 0.0018); 2 assays for a 1-guard function was one too many.",
+      "severity": "low"
+    },
+    {
+      "evidence": "Zero measured double mutants in the whole run; IKGV/IVGV (~1.9) are pure surrogate extrapolation vs additivity 1.4-1.6. Biggest untested discovery axis.",
+      "severity": "low"
+    },
+    {
+      "evidence": "Positional labeling hazard (pos41 INTA vs pos40 'T fails') flagged; logs should carry unambiguous residue labels.",
+      "severity": "low"
+    }
+  ],
+  "hypothesis_updates": [
+    {
+      "id": "h_inga_peak",
+      "new_status": "UNCONFIRMED_PENDING_REPLICATE",
+      "reason": "Support rests on absence of exceedance among 21/76 measured singles against an unreplicated incumbent under +-0.55 noise."
+    },
+    {
+      "id": "h_pos54_pocket",
+      "new_status": "PRIORITIZED_PROPOSED",
+      "reason": "V/S/T >=1.7 measured; aromatics incl. WT Y54 unmeasured \u2014 cheap, high-prior beat candidates."
+    },
+    {
+      "id": "h_n40_necessary",
+      "new_status": "SUPPORTED_QUALIFIED",
+      "reason": "K40 2.0137 / V40 1.9130 retained ~2.0; N40 preferred but not necessary."
+    },
+    {
+      "id": "h_g41_essential",
+      "new_status": "SUPPORTED",
+      "reason": "9 pos41 residues measured; L 1.0353 max, N 0.6426 second; G41 strongly preferred."
+    },
+    {
+      "id": "h_doubles_additive",
+      "new_status": "UNTESTED",
+      "reason": "Zero measured doubles; IKGV/IVGV must be assayed in R4 (falsifier: both <1.0 negative epistasis; >2.8 positive epistasis/new best)."
+    },
+    {
+      "id": "h_pos39_transfer",
+      "new_status": "PROPOSED",
+      "reason": "I39 on INGA consistent with earlier sweep; W39/F39 never measured on ING* backbone."
+    },
+    {
+      "id": "h_noise_replicate",
+      "new_status": "ACTIVE_RISK",
+      "reason": "Resolves in first assays of R4 via INGA/INGV/IKGA replicates; result gates all subsequent rank decisions."
+    }
+  ],
+  "leakage_check": "pass",
+  "policy_change_recommended": true,
+  "recommended_change": [
+    "Replace arm-based allocation with hypothesis-based allocation: merge EXPLOIT_MODEL + LOCAL_MUTATE into one beat-candidate pool (R3 proved them spatially identical)",
+    "Spend the first 3-4 assays on replicates: INGA, INGV, IKGA (optionally IVGA); conditional pivot of the parent (to IKGA/IVGA/INGV) if INGA replicates < 2.0",
+    "Beat-candidate block (~14-16): pos54 aromatics incl. WT Y54 (INGY, INGF, INGI, INGM), pos39 W/F on ING*, pos41 F/I/M, and 1-2 measured doubles (IKGV, IVGV) to test epistasis \u2014 zero doubles measured is the largest blind spot",
+    "Cut UNCERTAIN to 0-2, restricted to near-plateau extremes only; cut DIVERSE to 1 guard (expected ~0 per H-07)",
+    "Prohibit combinations containing measured-dead residues (pos41 E/R/Q/V/T, pos54 K/R/P/D)",
+    "Pre-commit a final-selection rule before results land: best replicate-verified value with noise-aware re-ranking (gap < ~0.7 not treated as a real difference)"
+  ],
+  "required_repairs": [
+    "Log new_point_prediction_rmse for Round 4 and compute retrospectively for R3 if proposal-store permits",
+    "Record per-proposal Hamming distance to the measured set and to the incumbent",
+    "Standardize positional labeling in all logs (pos40 vs pos41)",
+    "Final report must state explicitly which anchor values are single-replicate vs replicated"
+  ],
+  "review_answers": [
+    {
+      "a": "No. round_best 2.2863 (INGV) < best_before 2.8315 (INGA); best_after 2.8315; improved_best False.",
+      "q": "1) Did Round 3 improve best fitness?"
+    },
+    {
+      "a": "None beat 2.8315. Top tier by source: EXPLOIT_MODEL INGV 2.2863 (best of round); LOCAL_MUTATE IKGA 2.0137 and IVGA 1.9130. Nothing improved the run best.",
+      "q": "2) Which source produced improvements relative to entering best?"
+    },
+    {
+      "a": "Unknowable \u2014 new_point_prediction_rmse is None (not logged). WARN: surrogate external validity on fresh points was never assessed.",
+      "q": "3) Did new-point prediction error improve or deteriorate?"
+    },
+    {
+      "a": "Marginal. INNA 0.6426 added one useful pos41 datum; the other 3 added nothing; surrogate uncertainty extremes (INQV/INEV/INVV) pair measured-dead pos41 residues with V54.",
+      "q": "4) Did uncertainty sampling provide decision-relevant info?"
+    },
+    {
+      "a": "Yes. EXPLOIT_MODEL was 8x pos54 ING* singles and LOCAL_MUTATE 10x pos40/41/54 ING* singles \u2014 both INGA Hamming-1 sweeps; 16/24 assays in the same spatial shell.",
+      "q": "5) Are candidate pools collapsing to near-duplicates?"
+    },
+    {
+      "a": "Diminishing returns inside Hamming-1: 21 distinct INGA singles measured, none exceeded the unreplicated incumbent; unprobed profitable space is Hamming-2 doubles and pos39/pos54-aromatic singles.",
+      "q": "6) Is local search stuck?"
+    },
+    {
+      "a": "Risk is real: INGA vs INGV gap 0.545 < CV RMSE 0.551; every anchor is a single replicate. REPLICATE_ANCHORS_FIRST is the correct noise-aware fix.",
+      "q": "7) Is planner reacting to noise rather than repeated evidence?"
+    },
+    {
+      "a": "Leakage PASS \u2014 observed measurements and CV diagnostics only; no hidden fitness referenced. Fairness PASS \u2014 24/24 assays in R3 (72/96 total, 24 remaining), 0 unavailable rejections, no protocol change.",
+      "q": "8) Leakage/fairness?"
+    },
+    {
+      "a": "Yes \u2014 structurally: merge EXPLOIT+LOCAL into one beat-candidate pool, cut UNCERTAIN 4->0-2, cut DIVERSE 2->1, add replicates and Hamming-2 doubles, make the first 3-4 assays conditional anchors.",
+      "q": "9) Should final-round allocation change?"
+    }
+  ],
+  "round": 3,
+  "run_id": "adaptive_omnigent_seed_000",
+  "status": "WARN",
+  "successful_components": [
+    "Dense ING* single-mutant mapping: pos54 10 residues, pos40 5, pos41 9 across the run; established V/S/T-tolerant pos54 pocket and K/V-tolerant pos40",
+    "Dead-residue list (pos41 E/R/Q/V/T, pos54 K/R/P/D <0.22) \u2014 actionable exclusion set for Round 4",
+    "Hypothesis report quality: noise floor (H-08), single-replicate risk, REPLICATE_ANCHORS_FIRST, conditional pivot",
+    "Budget integrity: 24/24 used, 0 unavailable, 72/96 cumulative"
+  ],
+  "verdict": "modify"
+}

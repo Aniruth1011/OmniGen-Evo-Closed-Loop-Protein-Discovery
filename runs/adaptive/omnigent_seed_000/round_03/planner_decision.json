@@ -1,0 +1,175 @@
+{
+  "allocation": {
+    "EXPLOIT_MODEL": 8,
+    "EXPLORE_DIVERSE": 2,
+    "EXPLORE_UNCERTAIN": 4,
+    "LOCAL_MUTATE": 10,
+    "RANDOM_SAMPLE": 0
+  },
+  "budget": 24,
+  "current_best_fitness": 2.8315,
+  "expected_learning": [
+    "Sharp-peak vs plateau test at INGA: 18 Hamming-1 probes (10 LOCAL + 8 INGX) decide whether 2.8315 is a genuine local optimum or an artifact, feeding the round-4 replicate decision (Q6).",
+    "Position-54 tolerance map on ING backbone (8 aa in EXPLOIT + T/Q in LOCAL) directly tests the surrogate's flat 1.836 prediction (E-2.6).",
+    "Position-41 substitution response on the new best (L/E/T/Y/R) mirrors E-2.2's G41S finding on the old parent; position-40 perturbations (E/V/K) answer Q4.",
+    "Surrogate calibration: ensemble-std extremes (IPGA, INNA, INVA, INQA) + new-point RMSE logging quantify drift beyond the 48-point training set.",
+    "Minimal independent-backbone guard (WSFW, LTKP) for Q5; rejection frequency monitored after E-2.4's GWHC UNAVAILABLE.",
+    "Explicit gap recorded: Q1 position-39 NGA sweep not representable in frozen round-3 pools; flagged for round-4 pool construction."
+  ],
+  "policy_change_from_previous_round": true,
+  "policy_change_reason": "Slot-yield asymmetry in round 2 (EXPLOIT 2/4 hits, LOCAL 1/6, UNCERTAIN 0/8, DIVERSE 0/6) plus the critic verdict justify moving 8 slots from zero-yield arms into the INGA-centered block: uncertainty 8->4, diversity 6->2, EXPLOIT_MODEL 4->8 (primary engine, pos-54 series), LOCAL_MUTATE 6->10 (Hamming-1 confirmation on the new best). Alternatives considered and rejected: 10/8/4/2 (retained EXPLOIT largest but two extra INGX slots add less landscape info than IKGA/INGQ position coverage) and 8/8/4/4 (diversity 4 dilutes the decisive neighbor-confirmation test; E-2.4 gives no evidence 2 extra diverse slots pay). No action-space change; RANDOM_SAMPLE kept at 0 (fitness-blind; pools cover all slots).",
+  "primary_observations": [
+    "E-2.1: EXPLOIT_MODEL (4 slots) produced WNGA 0.9770 and INGA 2.8315 (new best, 4.7x over CNGA 0.5971); 2 top hits in 4 slots, unreplicated.",
+    "E-2.2: LOCAL_MUTATE (6 slots) produced CNSA 0.9936 via CNGA G41->S; position-41 substitution is productive on the prior parent.",
+    "E-2.3: EXPLORE_UNCERTAIN (8 slots) gave 0 improvements, best KNAA 0.3322.",
+    "E-2.4: EXPLORE_DIVERSE (6 slots) gave 0 improvements, all <= 0.0072; GWHC UNAVAILABLE (rejection risk in this arm).",
+    "E-2.5: Critic verdict modify (leakage/fairness pass): uncertainty 8->~4, diversity 6->~2, reallocate ~8 slots to INGA neighbor/replication block, keep EXPLOIT_MODEL primary, log new-point RMSE.",
+    "E-2.6: Surrogate n=48 ExtraTrees CV RMSE 0.434, Spearman 0.533; EXPLOIT pool flat at 1.836 (low top-end discrimination)."
+  ],
+  "remaining_total_budget_before_round": 48,
+  "risks": [
+    "INGA is unreplicated; 22/24 slots lie within Hamming-1 of it. If 2.8315 is spurious, most of the round loses value - mitigated by 2 diverse probes and a hard round-4 replicate trigger.",
+    "Surrogate saturation (flat 1.836 INGX predictions) means EXPLOIT slots may all land ~modest; capped at 8 to limit redundancy risk within a flat-predicted series.",
+    "LOCAL_MUTATE pool carries flat scores (all = parent 2.8315); no model ranking inside the pool, so rank/position coverage substitutes for discrimination.",
+    "Diversity-arm quality is weak (E-2.4: all <=0.0072, one rejection); WSFW/LTKP may be invalid and require virtual-lab refill.",
+    "If all neighbor probes collapse but no replicate runs this round, optimum status stays ambiguous - the round-4 replicate must be prioritized over expansion."
+  ],
+  "round": 3,
+  "round_budget": 24,
+  "run_id": "adaptive_omnigent_seed_000",
+  "selected_sequences": [
+    {
+      "sequence": "INGL",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 1
+    },
+    {
+      "sequence": "INGG",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 2
+    },
+    {
+      "sequence": "INGK",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 3
+    },
+    {
+      "sequence": "INGV",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 4
+    },
+    {
+      "sequence": "INGP",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 5
+    },
+    {
+      "sequence": "INGS",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 6
+    },
+    {
+      "sequence": "INGD",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 7
+    },
+    {
+      "sequence": "INGR",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 8
+    },
+    {
+      "sequence": "INLA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 1
+    },
+    {
+      "sequence": "IEGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 2
+    },
+    {
+      "sequence": "INEA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 3
+    },
+    {
+      "sequence": "INGT",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 4
+    },
+    {
+      "sequence": "INTA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 5
+    },
+    {
+      "sequence": "INYA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 6
+    },
+    {
+      "sequence": "IVGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 8
+    },
+    {
+      "sequence": "INRA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 9
+    },
+    {
+      "sequence": "IKGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 10
+    },
+    {
+      "sequence": "INGQ",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 11
+    },
+    {
+      "sequence": "IPGA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 1
+    },
+    {
+      "sequence": "INNA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 2
+    },
+    {
+      "sequence": "INVA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 3
+    },
+    {
+      "sequence": "INQA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 4
+    },
+    {
+      "sequence": "WSFW",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 1
+    },
+    {
+      "sequence": "LTKP",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 2
+    }
+  ],
+  "selection_parameters": {
+    "EXPLOIT_MODEL": "top-8 by predicted_mean from INGX pos-54 series (pool ranks 1-8), all distance-to-best=1; fully exploits the new best backbone (Q3). INGV (rank 4) also realizes part of the critic's named neighbor block.",
+    "EXPLORE_DIVERSE": "top-2 by min-Hamming-to-observed (WSFW, LTKP) as minimal non-N40-backbone guard (Q5); rejection/refill rule applies.",
+    "EXPLORE_UNCERTAIN": "top-4 by ensemble_std (IPGA, INNA, INVA, INQA) as the critic's small monitoring arm; all Hamming-1 so they double as calibration around the best.",
+    "LOCAL_MUTATE": "top-10 Hamming-1 neighbors of INGA 2.8315 by pool rank (positions 40: E,V,K; 41: L,E,T,Y,R; 54: T,Q), covering Q2 and Q4 (N40-perturbation via IEGA/IVGA/IKGA); dedup priority keeps INGL under EXPLOIT, so LOCAL claims ranks 1-6, 8-11.",
+    "analysis_note": "new-point RMSE to be logged for all 24 (critic requirement); formal INGA replicate deferred to round 4 (Q6) pending neighbor evidence."
+  },
+  "stop_conditions": [
+    "If round-3 neighbor/INGX evidence confirms INGA (neighbors within ~1 CV RMSE, no extreme drop) and round-4 replicate >= ~0.8 x 2.8315: declare INGA the optimum and spend final 24 slots on targeted exploitation/validation.",
+    "If neighbors collapse (all < 1.0) or replicate contradicts: invalidate the INGA claim, pivot final round to broad uncertainty/diversity.",
+    "Early stop if two consecutive rounds show zero EXPLOIT+LOCAL yield and new-point RMSE degrades materially (surrogate no longer informative).",
+    "Abort-normal if virtual-lab rejections exhaust refill capacity for the remaining budget."
+  ]
+}

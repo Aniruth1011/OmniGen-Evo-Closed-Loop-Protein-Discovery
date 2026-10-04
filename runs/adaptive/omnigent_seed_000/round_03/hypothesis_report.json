@@ -1,0 +1,226 @@
+{
+  "confidence": "medium",
+  "hypotheses": [
+    {
+      "evidence_against": [
+        "OBS-08 (single replicate)",
+        "pos39 never probed on ING*",
+        "only 21/76 single mutants measured"
+      ],
+      "evidence_for": [
+        "OBS-01",
+        "OBS-02",
+        "OBS-03",
+        "OBS-04"
+      ],
+      "falsifier": "INGA replicate < 2.0, or any ING* single mutant > 2.83.",
+      "id": "H-01",
+      "prediction": "INGA replicate >= 2.3; remaining ING* singles (pos39, pos54 aromatics) stay <= 2.83.",
+      "statement": "INGA is a local fitness peak: no measured single mutant of INGA exceeds it.",
+      "status": "SUPPORTED"
+    },
+    {
+      "evidence_against": [
+        "A54 parent still best among measured; no aromatic measured"
+      ],
+      "evidence_for": [
+        "OBS-02",
+        "WT Y54 biological prior"
+      ],
+      "falsifier": "INGY < 1.7 (pocket closed to aromatics; plateau is V/S/T-only).",
+      "id": "H-02",
+      "prediction": "INGY >= 2.0 and INGF/INGI/INGM in 1.5-2.3 on ING* backbone.",
+      "statement": "pos54 on the ING* backbone is a tolerant hydrophobic pocket (V/S/T >= 1.7); aromatic residues - especially WT Y54 - may match or exceed A54.",
+      "status": "PROPOSED"
+    },
+    {
+      "evidence_against": [
+        "no pos40 measurement on non-A54 backbones yet"
+      ],
+      "evidence_for": [
+        "OBS-03"
+      ],
+      "falsifier": "IKGV or IVGV < 1.0 (strong negative epistasis between pos40 and pos54 hits).",
+      "id": "H-03",
+      "prediction": "pos40 K/V remain >= 1.5 when combined with V54/S54.",
+      "statement": "N40 is strongly preferred on the I*GA backbone but not strictly necessary: K40 and V40 retain ~2.0 fitness.",
+      "status": "SUPPORTED"
+    },
+    {
+      "evidence_against": [
+        "no measured double mutants; additive predictions all below current best"
+      ],
+      "evidence_for": [
+        "OBS-05 surrogate top pool; independent residue positions"
+      ],
+      "falsifier": "Both IKGV and IVGV < 1.0.",
+      "id": "H-04",
+      "prediction": "IKGV and IVGV measured in [1.3, 2.5]; either > 2.8 would indicate positive epistasis and a new best.",
+      "statement": "pos40 (K/V) x pos54 (V) effects combine with weak or no negative epistasis, so IKGV/IVGV land near 1.4-1.9 (surrogate says ~1.9; additivity says ~1.4-1.6).",
+      "status": "PROPOSED"
+    },
+    {
+      "evidence_against": [
+        "only 8/19 pos41 residues tested; F/I/M/W/S unmeasured"
+      ],
+      "evidence_for": [
+        "OBS-04",
+        "glycine-turn biophysics prior"
+      ],
+      "falsifier": "Any pos41 substitution on ING* > 2.0.",
+      "id": "H-05",
+      "prediction": "Any remaining pos41 substitution (F/I/M/W/S...) on ING* <= 1.04.",
+      "statement": "G41 is near-essential on the ING* backbone; the beta-hairpin-turn glycine tolerates only hydrophobic L (1.04) and N (0.64) at low-moderate fitness.",
+      "status": "SUPPORTED"
+    },
+    {
+      "evidence_against": [
+        "WSFW (W39) ~0 shows W39 cannot rescue 3 bad positions; no ING*-backbone pos39 data"
+      ],
+      "evidence_for": [
+        "prior sweep support",
+        "I39 on INGA consistent with it"
+      ],
+      "falsifier": "ING* W39/F39 < 1.0.",
+      "id": "H-06",
+      "prediction": "ING* with W39 or F39 >= 1.5.",
+      "statement": "pos39 is a tuneable, transferable position: W/I improved the earlier parent, and I39 already sits on the best backbone; W39/F39 on ING* may match or beat it.",
+      "status": "SUPPORTED"
+    },
+    {
+      "evidence_against": [
+        "only 6 off-plateau assays in Round 3; surrogate blind spot possible"
+      ],
+      "evidence_for": [
+        "OBS-06",
+        "OBS-07",
+        "LOCAL_MUTATE best 2.0137 only"
+      ],
+      "falsifier": "Any non-ING* candidate > 2.0.",
+      "id": "H-07",
+      "prediction": "Any non-ING*-family candidate in Round 4 <= 1.0.",
+      "statement": "The landscape is narrow around the ING plateau: off-plateau uncertainty probes and distant diversity are both near the floor.",
+      "status": "SUPPORTED"
+    },
+    {
+      "evidence_against": [
+        "no direct contrary evidence"
+      ],
+      "evidence_for": [
+        "OBS-08",
+        "all key values un-replicated"
+      ],
+      "falsifier": "INGA replicate deviates > 1.0 from 2.8315 (re-rank plateau members; INGA may not be the peak).",
+      "id": "H-08",
+      "prediction": "INGA replicate within +/-0.7 of 2.8315; INGV replicate within +/-0.7 of 2.2863.",
+      "statement": "The apparent 'no improvement' may be partly a single-replicate artifact: with CV RMSE 0.551, the true INGA fitness could be 2.3-3.4, and INGV could rival it.",
+      "status": "PROPOSED"
+    }
+  ],
+  "observations": [
+    {
+      "id": "OBS-01",
+      "statement": "Run best unchanged: Round 3 best (INGV 2.2863) < Round 2 best (INGA 2.8315); all 24 R3 assays <= 2.2863. 21 distinct single mutants of INGA have now been measured (positions 40/41/54 nearly swept), none exceeded 2.2863."
+    },
+    {
+      "id": "OBS-02",
+      "statement": "pos54 sweep on ING* backbone: V 2.2863 > S 1.7221 > T 1.7185 > L 0.8198 > G 0.7857 > Q 0.2151 > D 0.0979 > P 0.0185 > K 0.0035 > R 0.0036; parent A54 = 2.8315 best. Y/F/I/M unmeasured (Y54 is the WT residue)."
+    },
+    {
+      "id": "OBS-03",
+      "statement": "pos40 sweep on I*GA backbone: N 2.8315 > K 2.0137 > V 1.9130 > E 0.6130 > P 0.5096. K/V tolerated near 2.0; E/P poor."
+    },
+    {
+      "id": "OBS-04",
+      "statement": "pos41 sweep on IN*A backbone (8 substitutions measured in Round 3): L 1.0353 > N 0.6426 > Y 0.4085 > T 0.0708 > V 0.0456 > R 0.0198 > E 0.0023 > Q 0.0016; G41 parent strongly preferred."
+    },
+    {
+      "id": "OBS-05",
+      "statement": "Zero measured double mutants across the whole run. Plateau combinations IKGV/IVGV exist only as surrogate predictions (1.946/1.907) exceeding linear and log-additive expectations from noisy single-mutant values."
+    },
+    {
+      "id": "OBS-06",
+      "statement": "EXPLORE_UNCERTAIN was low-yield: mean 0.300, best INNA 0.6426 (pos41 N). Surrogate uncertainty extremes (INQV/INEV/INVV) each pair a measured-bad pos41 residue with V54."
+    },
+    {
+      "id": "OBS-07",
+      "statement": "Distant-diversity probes ~0: WSFW 0.0143, LTKP 0.0018. Both near the assay floor."
+    },
+    {
+      "id": "OBS-08",
+      "statement": "Surrogate diagnostics (n=72): CV RMSE 0.551, Spearman 0.573. Noise floor ~ +/-0.55 makes the 2.8315 vs 2.2863 gap not significant. INGA and INGV are each single unreplicated measurements."
+    }
+  ],
+  "recommended_tests": [
+    {
+      "discriminates": "H-08 vs H-01; re-anchors every later comparison.",
+      "rank": 1,
+      "test": "Replicate INGA and INGV (2 assays)."
+    },
+    {
+      "discriminates": "H-04/H-03; the only measured path to a new best if positive epistasis exists.",
+      "rank": 2,
+      "test": "pos40 x pos54 plateau doubles, IKGV/IVGV-type (2-4 assays)."
+    },
+    {
+      "discriminates": "H-02; plausible beat-candidates with a strong biological prior.",
+      "rank": 3,
+      "test": "pos54 aromatic/hydrophobic singles on ING*: Y, F, I, M (3-4 assays; Y54 is WT)."
+    },
+    {
+      "discriminates": "H-06; the only untouched dimension on the best backbone.",
+      "rank": 4,
+      "test": "pos39 transfer on ING*: W39, F39 (2 assays)."
+    },
+    {
+      "discriminates": "H-05 cheaply; completes the pos41 sweep at low expected value.",
+      "rank": 5,
+      "test": "pos41 hydrophobic singles on ING*: F, I, M (2-3 assays)."
+    },
+    {
+      "discriminates": "H-07; blind-spot hedge, expected ~0.",
+      "rank": 6,
+      "test": "One distant-diversity guard candidate (1 assay)."
+    },
+    {
+      "discriminates": "H-07; monitor-only filler in a terminal round.",
+      "rank": 7,
+      "test": "Near-plateau surrogate-uncertainty extremes (INQV-type) (2-3 assays, lowest priority)."
+    }
+  ],
+  "round": 3,
+  "run_id": "adaptive_omnigent_seed_000",
+  "strategy_implications": [
+    {
+      "action": "REPLICATE_ANCHORS_FIRST",
+      "rationale": "Round 4 is terminal, so every assay is a potential final pick; 2 assays (INGA + INGV/IKGA) discriminate H-08 and re-rank the plateau before spending on doubles."
+    },
+    {
+      "action": "CONCENTRATE_ON_BEAT_CANDIDATES",
+      "rationale": "Only ING*-family constructs can plausibly exceed 2.8315: plateau doubles (H-04) and unexplored biologically-plausible singles - pos54 Y/F/I/M (H-02), pos39 W/F (H-06), pos41 F/I/M (H-05). Allocate ~60-70% of budget here."
+    },
+    {
+      "action": "LIMIT_UNCERTAINTY_MONITORING",
+      "rationale": "In a final round, surrogate uncertainty has no downstream use unless the monitored candidate could itself win. Restrict to 2-4 near-plateau extremes and deprioritize below the beat-candidates."
+    },
+    {
+      "action": "KEEP_ONE_DIVERSITY_GUARD",
+      "rationale": "WSFW/LTKP ~0 make distant signal unlikely, but one guard assay hedges surrogate blind spots at trivial cost; expect ~0 (H-07)."
+    },
+    {
+      "action": "AVOID_REMEASUREMENT_OF_DEAD_RESIDUES",
+      "rationale": "pos41 E/R/Q/V/T and pos54 K/R/P/D are measured-dead (<0.22); do not spend final assays on their combinations."
+    },
+    {
+      "action": "CONDITIONAL_PIVOT_ON_SECOND_TIER",
+      "rationale": "If INGA replicates < 2.0, re-rank around IKGA/IVGA/INGV as parents instead of INGA; keep 3-4 assays liquid until the replicate result returns."
+    }
+  ],
+  "uncertainties": [
+    "Noise floor +/-0.55 (CV RMSE): all fitness gaps below ~0.7 are uninterpretable",
+    "Zero measured double mutants: additivity/epistasis reasoning rests on noisy singles and surrogate extrapolation (Spearman 0.573) to Hamming-2+",
+    "pos39 dimension completely unprobed on ING*; pos54 aromatics (incl. WT Y54) unprobed",
+    "Only 2 distant probes (both ~0): single-peak assumption consistent but not established",
+    "Published GB1 landscape maxima exceed the current best, so 2.8315 is not assumed to be the global optimum"
+  ]
+}

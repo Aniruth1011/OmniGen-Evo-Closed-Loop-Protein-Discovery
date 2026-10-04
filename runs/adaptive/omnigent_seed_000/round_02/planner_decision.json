@@ -1,0 +1,199 @@
+{
+  "allocation": {
+    "EXPLOIT_MODEL": 4,
+    "EXPLORE_DIVERSE": 6,
+    "EXPLORE_UNCERTAIN": 8,
+    "LOCAL_MUTATE": 6,
+    "RANDOM_SAMPLE": 0
+  },
+  "analysis_table": [
+    {
+      "action": "EXPLOIT_MODEL",
+      "cost": 4,
+      "expected_fitness_gain": "LOW-MED",
+      "expected_information_gain": "MED",
+      "rationale": "Only real signal is CNGA 0.5971; 5-fold CV Spearman -0.158 at n=24 means predicted mean is not yet trustworthy, so exploitation is capped at 4 slots as a peak-validation probe of the Hamming-1 CNGA neighborhood per exploitation specialist and critic; not greedy exploitation.",
+      "redundancy_risk": "MED"
+    },
+    {
+      "action": "EXPLORE_UNCERTAIN",
+      "cost": 8,
+      "expected_fitness_gain": "LOW-MED",
+      "expected_information_gain": "HIGH",
+      "rationale": "Ensemble-std candidates are dist-2 from observed and latch onto the outlier neighborhood; highest per-slot information given surrogate unreliability; 8 slots keep the majority-exploration stance while leaving room for local probes and diversity coverage; deduped across pools.",
+      "redundancy_risk": "LOW"
+    },
+    {
+      "action": "EXPLORE_DIVERSE",
+      "cost": 6,
+      "expected_fitness_gain": "LOW",
+      "expected_information_gain": "MED-HIGH",
+      "rationale": "22/24 observed variants <=0.0148 with zeros means the landscape is mostly flat/low; guaranteed Hamming-dist-4 coverage (fitness-blind) protects against model blind spots and feeds the surrogate unseen flat regions; 6 slots.",
+      "redundancy_risk": "LOW"
+    },
+    {
+      "action": "LOCAL_MUTATE",
+      "cost": 6,
+      "expected_fitness_gain": "MED",
+      "expected_information_gain": "HIGH",
+      "rationale": "CNGA radius-1 neighborhood is the only evidence-backed discovery surface (plateau-vs-single-point test plus G41/position-54 swap hypotheses); deterministic Hamming-1 probes around top measured parents, top-6 ranks, radius held at 1 per local-search specialist; no duplicate sequences across actions.",
+      "redundancy_risk": "MED"
+    },
+    {
+      "action": "RANDOM_SAMPLE",
+      "cost": 0,
+      "expected_fitness_gain": "NONE",
+      "expected_information_gain": "NONE",
+      "rationale": "Round 1 was already pure random init; every remaining slot is better spent on evidence-tied actions; may return if surrogate stalls.",
+      "redundancy_risk": "NONE"
+    }
+  ],
+  "budget": 24,
+  "expected_learning": [
+    "Whether the CNGA 0.5971 peak is a plateau or a single point, and whether any Hamming-1 neighbor exceeds it (EXPLOIT_MODEL + LOCAL_MUTATE)",
+    "Whether high ensemble-std regions near the top outlier track true fitness better than predicted mean (EXPLORE_UNCERTAIN)",
+    "Fitness landscape coverage at Hamming distance 4 from all observed variants (EXPLORE_DIVERSE)",
+    "Whether surrogate CV rank stabilizes as n grows, informing when mean exploitation can be re-enabled"
+  ],
+  "policy_change_from_previous_round": true,
+  "policy_change_reason": "Round 1 was pure random init; Round 2 introduces model-driven acquisition with majority exploration: 4 EXPLOIT_MODEL slots as a CNGA-peak probe only, 8 EXPLORE_UNCERTAIN (ensemble-std), 6 EXPLORE_DIVERSE (coverage), 6 LOCAL_MUTATE (CNGA radius-1), 0 RANDOM_SAMPLE.",
+  "risks": [
+    "Surrogate CV is negative (-0.158); the 4 EXPLOIT_MODEL slots are a probe and model misranking could waste them",
+    "The single 0.5971 outlier may be noisy, making CNGA-neighborhood probes low-yield",
+    "Rugged low-fitness landscape (22/24 <=0.0148, 6-7 zeros) means expected yield this round may be low regardless of allocation",
+    "Over-concentration around one elite risks plateau misspecification if the true peak lies elsewhere"
+  ],
+  "round": 2,
+  "run_id": "adaptive_omnigent_seed_000",
+  "selected_sequences": [
+    {
+      "sequence": "DNGA",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 1
+    },
+    {
+      "sequence": "QNGA",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 2
+    },
+    {
+      "sequence": "WNGA",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 3
+    },
+    {
+      "sequence": "INGA",
+      "source_action": "EXPLOIT_MODEL",
+      "source_rank": 4
+    },
+    {
+      "sequence": "KNLA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 1
+    },
+    {
+      "sequence": "KNDA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 2
+    },
+    {
+      "sequence": "KNAA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 3
+    },
+    {
+      "sequence": "KNTA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 4
+    },
+    {
+      "sequence": "KNNA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 5
+    },
+    {
+      "sequence": "KNQA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 6
+    },
+    {
+      "sequence": "KNVA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 7
+    },
+    {
+      "sequence": "KNFA",
+      "source_action": "EXPLORE_UNCERTAIN",
+      "source_rank": 8
+    },
+    {
+      "sequence": "GWHC",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 1
+    },
+    {
+      "sequence": "GVVC",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 2
+    },
+    {
+      "sequence": "RVAH",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 3
+    },
+    {
+      "sequence": "RVHH",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 4
+    },
+    {
+      "sequence": "ALNS",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 5
+    },
+    {
+      "sequence": "PLDT",
+      "source_action": "EXPLORE_DIVERSE",
+      "source_rank": 6
+    },
+    {
+      "sequence": "CNSA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 1
+    },
+    {
+      "sequence": "CIGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 2
+    },
+    {
+      "sequence": "CNGI",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 3
+    },
+    {
+      "sequence": "CNQA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 4
+    },
+    {
+      "sequence": "CMGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 5
+    },
+    {
+      "sequence": "CPGA",
+      "source_action": "LOCAL_MUTATE",
+      "source_rank": 6
+    }
+  ],
+  "selection_parameters": {
+    "diversity_metric": "hamming_distance",
+    "exploit_rank_by": "predicted_mean",
+    "local_search_radius": 1,
+    "uncertainty_rank_by": "ensemble_std"
+  },
+  "stop_conditions": [
+    "budget exhausted after Round 4; no early stop"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "action_yield": {
+    "RANDOM_SAMPLE": {
+      "best_fitness": 0.597071201032,
+      "improvements_over_previous_best": 0,
+      "mean_fitness": 0.031054947685566246,
+      "n": 24,
+      "new_point_prediction_rmse": null
+    }
+  },
+  "assays_in_round": 24,
+  "assays_total": 24,
+  "best_after": 0.597071201032,
+  "best_before": null,
+  "improved_best": true,
+  "leakage_inputs": "observed_measurements_and_proposal_metadata_only",
+  "questions_for_critic": [
+    "Which source produced improvements relative to the entering best?",
+    "Did new-point prediction error improve or deteriorate?",
+    "Did uncertainty sampling provide decision-relevant information?",
+    "Are local candidates concentrated around one parent or plateau?",
+    "Does this evidence justify changing allocation next round?"
+  ],
+  "remaining_budget": 72,
+  "round": 1,
+  "round_best": 0.597071201032
+}

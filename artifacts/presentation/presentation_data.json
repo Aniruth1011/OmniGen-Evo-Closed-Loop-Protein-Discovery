@@ -1,0 +1,21 @@
+{
+  "run_id": "adaptive_omnigent_seed_000",
+  "development_seed": 0,
+  "successful_assays": 96,
+  "best_sequence": "IYGV",
+  "best_fitness": 4.38774529032,
+  "figures": [
+    "01_discovery_trajectory.png",
+    "02_adaptive_allocation.png",
+    "03_source_performance.png",
+    "04_epistasis.png",
+    "05_model_diagnostics.png",
+    "06_omnigent_orchestration.png",
+    "07_adaptation_story.png",
+    "08_evidence_status.png"
+  ],
+  "deck": "omnievo_deck.html",
+  "powerpoint": "OmniEvo_final_deck.pptx",
+  "trace_demo": "omnigent_demo_trace.html",
+  "claim_boundary": "Representative development run; paired fixed-mixture evaluation is pending."
+}

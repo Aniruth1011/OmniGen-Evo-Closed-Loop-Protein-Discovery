@@ -1,0 +1,84 @@
+{
+  "failed_components": [
+    "EXPLORE_UNCERTAIN (0/8 improvements, mean 0.0525, no demonstrated info value)",
+    "EXPLORE_DIVERSE (0/6 improvements, mean 0.0027, near-zero yield)"
+  ],
+  "fairness_check": "pass",
+  "findings": [
+    {
+      "evidence": "Best fitness rose 0.5971 -> 2.8315 (~4.7x) via INGA; WNGA 0.9770 independently corroborates position-39 levers.",
+      "severity": "info"
+    },
+    {
+      "evidence": "EXPLOIT_MODEL 2/4 picks and LOCAL_MUTATE 1/6 produced the improvements; EXPLORE_UNCERTAIN 0/8 and EXPLORE_DIVERSE 0/6 produced none (14 of 24 slots).",
+      "severity": "info"
+    },
+    {
+      "evidence": "New-point prediction RMSE was not logged this round, so surrogate generalization change is undeterminable; CV RMSE 0.434, Spearman 0.533 at n=48.",
+      "severity": "warn"
+    },
+    {
+      "evidence": "INGA 2.8315 is a single unreplicated measurement; magnitude must be confirmed by direct replication or neighbor evidence before being treated as a true optimum.",
+      "severity": "warn"
+    },
+    {
+      "evidence": "Local search is narrow rather than stuck: CNSA 0.9936 (G41->S) is a strong neighbor but five of six fell below parent 0.5971.",
+      "severity": "info"
+    },
+    {
+      "evidence": "Exploitation and local pools both concentrated on the CNGA/INGA parent family (X-N-G-A) this round; next round should not only re-parent onto INGA but retain an informed diversity guard.",
+      "severity": "warn"
+    },
+    {
+      "evidence": "Leakage inputs restricted to observed measurements and proposal metadata; surrogate trained on 48 observed points only; GWHC UNAVAILABLE rejection refilled within budget.",
+      "severity": "info"
+    }
+  ],
+  "hypothesis_updates": [
+    {
+      "id": "h_inga_peak",
+      "new_status": "unconfirmed_promising",
+      "reason": "INGA 2.8315 is a single unreplicated measurement and must be replicated before being treated as a true optimum."
+    },
+    {
+      "id": "h_pos39_sweep",
+      "new_status": "supported",
+      "reason": "Two of four position-39 substitutions (W, I) beat the previous best, corroborating position 39 as a dominant fitness lever and justifying the L/M/F/V/Y/S/T/A extension."
+    },
+    {
+      "id": "h_n40_necessary",
+      "new_status": "strengthened",
+      "reason": "N at position 40 appears in all top variants (CNGA, WNGA, INGA, CNSA), consistent with N40 being required context for high fitness."
+    },
+    {
+      "id": "h_k39_plateau",
+      "new_status": "supported",
+      "reason": "Uncertainty picks in the low-yield region (KNAA 0.3322, seven others <= 0.0449) confirm a low plateau that should receive minimal sampling next round."
+    },
+    {
+      "id": "h_local_narrow",
+      "new_status": "promising_with_caveat",
+      "reason": "CNSA (G41->S) reached 0.9936, the second-best observed value, but five of six neighbors fell below the 0.5971 parent, indicating a narrow ridge worth probing around the new parent."
+    }
+  ],
+  "leakage_check": "pass",
+  "policy_change_recommended": true,
+  "recommended_change": [
+    "Cut EXPLORE_UNCERTAIN from 8 to ~4 slots and EXPLORE_DIVERSE from 6 to ~2 slots, reallocating ~8 slots to a replication/neighborhood block around INGA (INSA, INGV, LNGA, MNGA, FNGA) plus continuation of the position-39 NGA sweep (L/M/F/V/Y/S/T/A).",
+    "Require direct replication of INGA in round 3 before any claim of a new optimum, given it is an unreplicated single measurement; if replication slots are unavailable due to pool constraints, neighbor confirmation is the minimum.",
+    "Keep EXPLOIT_MODEL as the primary driver but constrain its candidate set to parent-lattice variants around INGA/CNGA so model picks remain interpretable.",
+    "Retain a small uncertainty arm (~4 slots) strictly as a monitoring function and demand coverage or calibration evidence, since round 2 demonstrated no decision-relevant information from it.",
+    "Mandate per-round new-point RMSE logging for round 3, as round 2 could not establish whether surrogate prediction error improved or deteriorated on freshly measured points."
+  ],
+  "required_repairs": [],
+  "round": 2,
+  "run_id": "adaptive_omnigent_seed_000",
+  "status": "WARN",
+  "successful_components": [
+    "EXPLOIT_MODEL (2/4 picks improved incl. new best INGA 2.8315)",
+    "LOCAL_MUTATE (1/6: CNSA 0.9936 via G41S)",
+    "Budget discipline (24/24, one UNAVAILABLE transparently refilled)",
+    "Clean leakage and fairness posture"
+  ],
+  "verdict": "modify"
+}

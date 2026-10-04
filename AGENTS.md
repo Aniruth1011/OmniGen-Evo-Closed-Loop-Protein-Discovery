@@ -1,5 +1,19 @@
 # AGENTS.md — OmniEvo: Adaptive Agentic Directed Evolution on GB1
 
+## Native tool-execution protocol
+
+When an action requires a tool, invoke the registered Omnigent tool through the
+native tool interface. Never print, narrate, or imitate a call using XML,
+`<tool_call>`, `name(args)`, JSON, or prose. A tool-shaped string in an assistant
+message does not execute anything and is a failed action. After each native tool
+result, continue the workflow until the requested terminal condition is met.
+
+Use the narrow OmniEvo Python tools for run initialization, surrogate fitting,
+candidate-pool generation, artifact validation, critic-to-planner handoffs, and
+laboratory execution. Use `sys_os_*` only to inspect or maintain orchestration
+artifacts inside the staged workspace. Never request or infer the private oracle
+path.
+
 ## 0. Purpose of this file
 
 ## Naming and platform note

@@ -1,0 +1,253 @@
+{
+  "confidence": "medium",
+  "hypotheses": [
+    {
+      "evidence_against": "FNGA 3.2615 improves at Hamming-1; IYGV 4.3877 improves at Hamming-2 by 1.556 (2.8x RMSE@n=72).",
+      "evidence_for": "R2-R3 stagnation at 2.8315.",
+      "falsifier": "Observed (IYGV).",
+      "id": "H-01",
+      "new_status": "REJECTED",
+      "old_status": "UNCONFIRMED_PENDING_REPLICATE",
+      "prediction": "If INGA were a peak, no single or double substitution would exceed it by >2x RMSE.",
+      "statement": "INGA (2.8315) is a local fitness peak."
+    },
+    {
+      "discriminating_test": "T-02.",
+      "evidence_against": "Only non-conservative G41 substitutions tested so far.",
+      "evidence_for": "G41L 0.0303, G41K 0.0044, G41F 0.0032 across differing contexts; background 2.8315.",
+      "falsifier": "G41A or G41S > 0.5.",
+      "id": "H-02",
+      "new_status": "SUPPORTED",
+      "old_status": "SUPPORTED",
+      "prediction": "G41A/S/T also < 0.1.",
+      "statement": "G41 is near-essential in the 39-54 region; substitutions at 41 are catastrophic."
+    },
+    {
+      "evidence_against": "Does not generalize to combinations: V54 is the winning partner in IYGV.",
+      "evidence_for": "Complete R4 aromatic/medium scan at pos54 all below A54.",
+      "falsifier": "A replicated 54-single > 2.83 on ING*.",
+      "id": "H-03",
+      "new_status": "SUPPORTED",
+      "old_status": "SUPPORTED",
+      "prediction": "No single 54-substitution exceeds A54 on ING*; combinations governed by H-04.",
+      "statement": "On ING* singles, A54 is the best pos54 residue (A 2.8315 > V 2.2863 > F 1.8449 > M 1.5769 > I 0.4801 > W 0.2041 > Y 0.0720)."
+    },
+    {
+      "discriminating_test": "T-01 and T-03.",
+      "evidence_against": "Single-shot measurement; labeling ambiguity (U-01).",
+      "evidence_for": "IYGV 4.3877 vs additive 2.11/1.89: epistasis +2.28 to +2.50, ~3x RMSE; residue-specific contrast with FNGV -1.65 and WNGV 0.06.",
+      "falsifier": "Replicate IYGV < 3.0, or Yx{54 variant} doubles all near additive.",
+      "id": "H-04",
+      "new_status": "SUPPORTED",
+      "old_status": "PROPOSED",
+      "prediction": "Replicate IYGV ~4.4; Y paired with F54/M54 exceeds additive but less strongly; F/W with V54 stay antagonistic.",
+      "statement": "V54 is a latent/conditional beneficial mutation: slightly deleterious alone, strongly synergistic with Y at the interacting position."
+    },
+    {
+      "discriminating_test": "T-04.",
+      "evidence_against": "Transfer does NOT generalize: FNGV 1.0694 and WNGV 0.0614 show F/W at 39 antagonistic in the V54 background; F39 benefit +0.43 within ~1 RMSE.",
+      "evidence_for": "F39 best single measured; Y39 near-background; C39->I39 was the R1->R2 gain.",
+      "falsifier": "A replicated F39xV54 double > 2.7.",
+      "id": "H-05",
+      "new_status": "WEAKENED",
+      "old_status": "PROPOSED",
+      "prediction": "F39 improves on A54-type backgrounds only; on V54-type backgrounds pos39 aromatics neutral-to-deleterious.",
+      "statement": "pos39 aromatic substitutions (F, Y) transfer benefit across backgrounds."
+    },
+    {
+      "discriminating_test": "T-04.",
+      "evidence_against": "One background, no replicates.",
+      "evidence_for": "Y40 2.4352 vs I40 0.0028, W40 0.0153, G40 0.1679 (870x spread).",
+      "falsifier": "Y40 <= 2.0 on a second background.",
+      "id": "H-06",
+      "new_status": "PROPOSED",
+      "old_status": "PROPOSED",
+      "prediction": "Residue ordering at pos40 (Y > M > L > G > W ~ I) reproduces on a second background.",
+      "statement": "pos40 is a high-specificity site: Y strongly preferred, I/W strongly disfavored among tested."
+    },
+    {
+      "discriminating_test": "T-06.",
+      "evidence_against": "Single outlier; cannot distinguish systematic bias from one lucky variant.",
+      "evidence_for": "IYGV predicted 1.846 vs observed 4.3877 (residual +2.54, ~3.3x RMSE); ranked 4th, so ordinal signal existed.",
+      "falsifier": "Calibration batch of doubles all within +/-1 RMSE of prediction.",
+      "id": "H-07",
+      "new_status": "PROPOSED",
+      "old_status": "PROPOSED",
+      "prediction": "Predicted-moderate doubles containing the synergistic combination show large positive residuals.",
+      "statement": "The additive-flavored surrogate systematically under-predicts positive-epistasis doubles (rank-useful, magnitude-unreliable at extremes)."
+    },
+    {
+      "discriminating_test": "T-03/T-04.",
+      "evidence_against": "All single-shot; block matrix sparse.",
+      "evidence_for": "Three measured combinations: YxV +2.3/+2.5, F x V -1.65, W x V deeply negative.",
+      "falsifier": "Replication collapses the YxV/FxV contrast to within noise.",
+      "id": "H-08",
+      "new_status": "SUPPORTED",
+      "old_status": "PROPOSED",
+      "prediction": "Additional partner x pos54 pairs will show both positive and negative epistasis depending on partner identity.",
+      "statement": "Epistasis in the 39/40 x 54 interaction block is sign-variable and large; pair interactions are the dominant unexplored signal."
+    }
+  ],
+  "observations": [
+    {
+      "competing": "Identity/labeling ambiguity (U-01): code IYGV parses as I39/Y40/G41/V54; additive baseline 2.11 (Y39) or 1.89 (Y40); observed 4.39 is >2x either.",
+      "discriminating_test": "Replicate IYGV AND assay the unmeasured {Y39,Y40}x{V54} cell (T-01).",
+      "falsifier": "Replicate IYGV < 3.0, or the missing matrix cell measuring near its additive expectation.",
+      "id": "OBS-01",
+      "mechanism": "A double mutation combining an aromatic Y substitution with V54 creates positive epistasis beyond the additive single effects.",
+      "prediction": "A replicate and the missing Y39/Y40 x A54/V54 matrix cell will confirm one reading.",
+      "statement": "IYGV measured 4.3877, new run best, +1.556 over INGA 2.8315 (~2.8x CV RMSE at n=72); Hamming-2 double (Y at pos39 or pos40 plus V54). Surrogate predicted 1.846 at rank 4 (residual +2.54, ~3.3x final RMSE)."
+    },
+    {
+      "competing": "FNGA - INGA = +0.43 < 1 CV RMSE (0.759): F39 advantage is within noise on a single measurement.",
+      "discriminating_test": "Replicate FNGA, YNGA, IYGA alongside the double (T-01/T-02).",
+      "falsifier": "Replicates showing FNGA <= INGA or Y39/Y40 singles far below background.",
+      "id": "OBS-02",
+      "mechanism": "F39 transfers benefit to the INGA background (C39 0.5971 < I39 2.8315 < F39 3.2615 ordering).",
+      "prediction": "True F39 benefit, if real, is small-to-moderate; Y39/Y40 are near-neutral singles that pay off only in combination.",
+      "statement": "Single substitutions around INGA: FNGA 3.2615 (best single), YNGA 2.6513, IYGA 2.4352, vs INGA background 2.8315."
+    },
+    {
+      "competing": "Single-shot noise could inflate IYGV and deflate FNGV; sign flip needs replication.",
+      "discriminating_test": "Test Y and F at the partner position against other pos54 residues (T-03).",
+      "falsifier": "Replicated FNGV near 2.7+ or IYGV near its additive baseline.",
+      "id": "OBS-03",
+      "mechanism": "V54 is context-dependent: slightly deleterious alone (INGV 2.2863 < INGA 2.8315) but strongly beneficial with Y at the partner position, antagonistic with F/W.",
+      "prediction": "Residue identity at the partner position, not V54 per se, determines synergy.",
+      "statement": "Sign-variable epistasis at the same interacting positions: YxV double 4.3877 (epistasis +2.28 to +2.50); F39xV54 (FNGV) 1.0694 vs additive 2.72 (epistasis -1.65); W39xV54 (WNGV) 0.0614."
+    },
+    {
+      "competing": "G41 variants also carry other mutations; conservative G41 substitutions (A/S) untested.",
+      "discriminating_test": "Assay G41A, G41S, G41T singles (T-02).",
+      "falsifier": "G41A or G41S > 0.5.",
+      "id": "OBS-04",
+      "mechanism": "G41 is a structural/functional keystone; any side-chain change at 41 collapses fitness regardless of context.",
+      "prediction": "Any G41 substitution, including G41A/S/T, keeps fitness < 0.1.",
+      "statement": "Every measured G41 substitution is near-zero: INLV (G41L) 0.0303, INKV (G41K) 0.0044, PYFV (G41F) 0.0032; background 2.8315 (>93-fold reduction)."
+    },
+    {
+      "competing": "Single background, no replicates.",
+      "discriminating_test": "Replicate key pos40 singles and test M/L partners against V54 (T-04).",
+      "falsifier": "Y40 <= 2.0 on a second background, or replicated I40 > 0.5.",
+      "id": "OBS-05",
+      "mechanism": "pos40 prefers aromatic/medium hydrophobic chemistry; I and W strongly disfavored.",
+      "prediction": "Y40 and M40 beat I40/W40 on other backgrounds too.",
+      "statement": "pos40 scan on INGA background is extreme: Y 2.4352, M 1.1402, L 0.7183, G 0.1679, W 0.0153, I 0.0028 (~870x spread)."
+    },
+    {
+      "competing": "R3 may have under-covered Hamming-1 (F39 not sampled); R4 jump could be sampling luck.",
+      "discriminating_test": "Allocate a substantial share of the next round to Hamming-2 doubles with replicates (T-05/T-06).",
+      "falsifier": "A Hamming-2-only next round yields no improvement over IYGV.",
+      "id": "OBS-06",
+      "mechanism": "Single-substitution search exhausted apparently accessible gains around INGA; better genotypes required two simultaneous changes.",
+      "prediction": "Rounds sampling Hamming-2 doubles outperform Hamming-1-only rounds of equal size.",
+      "statement": "R3 was flat (2.8315 in, 2.8315 out) with zero doubles assayed through R3; the first doubles sampled in R4 produced the +55% jump (IYGV)."
+    },
+    {
+      "competing": "Magnitude error could be specific to this variant.",
+      "discriminating_test": "Calibration batch of 8-12 model-ranked doubles (T-06).",
+      "falsifier": "A batch of predicted-moderate doubles all within +/-1 RMSE of prediction.",
+      "id": "OBS-07",
+      "mechanism": "Surrogate captures first-order effects (ordinal ranking works) but cannot extrapolate positive-epistasis magnitudes from mostly single-mutant training data.",
+      "prediction": "Predicted-moderate doubles with the synergistic YxV-type combination show positive residuals; other doubles stay within ~1 RMSE.",
+      "statement": "Final surrogate (n=96): CV RMSE 0.759, Spearman 0.653; ranked IYGV 4th (enabled the assay) but under-predicted its magnitude by 2.54 (~3.3x RMSE). EXPLORE_DIVERSE (PYFV 0.0032) and EXPLORE_UNCERTAIN (INKV 0.0044) returned dead ends."
+    }
+  ],
+  "planner_questions": {
+    "1": "Is the 4.3877 double reproducible, and is its true synergistic partner Y39 or Y40?",
+    "2": "Does the Y x V54 synergy extend to F54/M54/S54, or is it V-specific?",
+    "3": "Is G41 essentiality absolute (G41A/S/T)?",
+    "4": "Do Hamming-3 extensions of IYGV improve beyond 4.39, or is this a plateau?",
+    "5": "Are surrogate magnitude errors systematic for doubles (model upgrade) or per-variant noise?"
+  },
+  "recommended_tests": [
+    {
+      "cost": "3-6 assays",
+      "id": "T-01",
+      "priority": 1,
+      "resolves": "U-01, U-02; tests H-04",
+      "test": "Replicate IYGV (2x) and assay the missing {Y39,Y40} x {A54,V54} matrix cell (YNGV vs IYGV-as-coded)"
+    },
+    {
+      "cost": "3 assays",
+      "id": "T-02",
+      "priority": 2,
+      "resolves": "U-05 boundary of H-02",
+      "test": "Assay conservative G41 substitutions (G41A, G41S, G41T) on INGA"
+    },
+    {
+      "cost": "~6 assays",
+      "id": "T-03",
+      "priority": 3,
+      "resolves": "H-04 scope; V-specific vs aromatic-partner synergy",
+      "test": "Pair Y at the resolved synergistic position with F54, M54, S54"
+    },
+    {
+      "cost": "~6 assays",
+      "id": "T-04",
+      "priority": 4,
+      "resolves": "H-05, H-06, H-08",
+      "test": "Complete the partner x V54 matrix for F, M, L at the interacting position"
+    },
+    {
+      "cost": "8-12 assays",
+      "id": "T-05",
+      "priority": 5,
+      "resolves": "Whether 4.3877 is near a plateau or extensible",
+      "test": "Hamming-3 extensions of IYGV using proven-beneficial residues"
+    },
+    {
+      "cost": "8-12 assays",
+      "id": "T-06",
+      "priority": 6,
+      "resolves": "H-07; surrogate fitness to drive next round",
+      "test": "Calibration batch of 8-12 surrogate-ranked moderate doubles with truth labels"
+    }
+  ],
+  "round": 4,
+  "run_id": "adaptive_omnigent_seed_000",
+  "strategy_implications": [
+    {
+      "action": "Prioritize Hamming-2 doubles around the current peak (IYGV) for a hypothetical next round.",
+      "rationale": "OBS-06: the only round with doubles produced the largest gain; H-08 says pair interactions carry the signal."
+    },
+    {
+      "action": "Require replicate assays of the top variant and its singles before further expansion.",
+      "rationale": "Every strong claim (H-04, H-08) rests on single-shot measurements; final CV RMSE 0.759."
+    },
+    {
+      "action": "Keep the surrogate as a candidate generator, not a magnitude gate.",
+      "rationale": "Spearman 0.653 and rank-4 hit justify generation; under-prediction by 3.3x RMSE justifies direct assay of predicted-moderate doubles."
+    },
+    {
+      "action": "Constrain future mutation space to exclude G41 substitutions.",
+      "rationale": "H-02: three distinct G41 substitutions all < 0.04; assays there are wasted."
+    },
+    {
+      "action": "Update the surrogate toward explicit pairwise interaction terms once doubles accumulate.",
+      "rationale": "H-07/H-08: additive-base models cannot represent sign-variable interactions."
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U-01",
+      "statement": "Identity of the top variant is ambiguous: code IYGV parses as I39/Y40/G41/V54; prose said pos39 Y + V54. Positive epistasis (4.39 vs 2.11/1.89 additive) survives either reading; the synergistic partner position (39 vs 40) does not."
+    },
+    {
+      "id": "U-02",
+      "statement": "No replicates: CV RMSE 0.759 at n=96; F39 advantage over INGA (+0.43) within one RMSE; IYGV advantage (+1.556) ~2x RMSE at n=96."
+    },
+    {
+      "id": "U-03",
+      "statement": "R3 flatness is confounded: unknown whether beneficial singles (F39, Y40) and doubles were simply not assayed in R3, or assayed and read low."
+    },
+    {
+      "id": "U-04",
+      "statement": "pos54 S/T values were stated as previously measured but numeric fitnesses not in ledger excerpt; pos54 single hierarchy (H-03) incomplete."
+    },
+    {
+      "id": "U-05",
+      "statement": "PYFV (0.0032) confounds P39, Y40, F41; near-zero attributable to F41 under H-02; no clean info on P39 or Y40 alone."
+    }
+  ]
+}

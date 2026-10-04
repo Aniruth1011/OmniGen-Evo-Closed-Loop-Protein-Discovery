@@ -1,0 +1,25 @@
+round,assay_index_global,sequence,fitness,source_action,proposal_agent,planner_batch_id,source_rank,model_score,model_uncertainty,distance_to_best,parent,proposal_metadata,measured_at
+2,25,DNGA,0.0118374862211,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,1,,,,,{},2026-10-04T03:52:47.138664+00:00
+2,26,QNGA,0.305598640219,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,2,,,,,{},2026-10-04T03:52:47.138696+00:00
+2,27,WNGA,0.976953731721,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,3,,,,,{},2026-10-04T03:52:47.138707+00:00
+2,28,INGA,2.83147206953,EXPLOIT_MODEL,experiment-planner,adaptive_omnigent_seed_000-r02-exploit_model-1,4,,,,,{},2026-10-04T03:52:47.138717+00:00
+2,29,GVVC,0.000411536538755,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,2,,,,,{},2026-10-04T03:52:47.143587+00:00
+2,30,RVAH,0.00274083334811,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,3,,,,,{},2026-10-04T03:52:47.143610+00:00
+2,31,RVHH,0.00295393894331,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,4,,,,,{},2026-10-04T03:52:47.143621+00:00
+2,32,ALNS,0.0,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,5,,,,,{},2026-10-04T03:52:47.143630+00:00
+2,33,PLDT,0.00259931508251,EXPLORE_DIVERSE,experiment-planner,adaptive_omnigent_seed_000-r02-explore_diverse-1,6,,,,,{},2026-10-04T03:52:47.143638+00:00
+2,34,AFAI,0.00721271933713,EXPLORE_DIVERSE,exploration-specialist,adaptive_omnigent_seed_000-r02-explore_diverse-2,7,,,4,,"{'distance_to_observed': 4, 'score': 4, 'score_definition': 'minimum_hamming_distance_to_observed'}",2026-10-04T03:52:47.147585+00:00
+2,35,KNLA,0.030334183837,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,1,,,,,{},2026-10-04T03:52:47.150828+00:00
+2,36,KNDA,0.00628871896316,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,2,,,,,{},2026-10-04T03:52:47.150850+00:00
+2,37,KNAA,0.332231401423,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,3,,,,,{},2026-10-04T03:52:47.150859+00:00
+2,38,KNTA,0.000839458912132,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,4,,,,,{},2026-10-04T03:52:47.150867+00:00
+2,39,KNNA,0.00183333334322,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,5,,,,,{},2026-10-04T03:52:47.150875+00:00
+2,40,KNQA,0.000935438002768,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,6,,,,,{},2026-10-04T03:52:47.150882+00:00
+2,41,KNVA,0.00296146228861,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,7,,,,,{},2026-10-04T03:52:47.150890+00:00
+2,42,KNFA,0.0448847273036,EXPLORE_UNCERTAIN,experiment-planner,adaptive_omnigent_seed_000-r02-explore_uncertain-1,8,,,,,{},2026-10-04T03:52:47.150897+00:00
+2,43,CNSA,0.993610058939,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,1,,,,,{},2026-10-04T03:52:47.154449+00:00
+2,44,CIGA,0.514252954321,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,2,,,,,{},2026-10-04T03:52:47.154469+00:00
+2,45,CNGI,0.28351126279,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,3,,,,,{},2026-10-04T03:52:47.154480+00:00
+2,46,CNQA,0.015226851934,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,4,,,,,{},2026-10-04T03:52:47.154489+00:00
+2,47,CMGA,0.185095239093,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,5,,,,,{},2026-10-04T03:52:47.154507+00:00
+2,48,CPGA,0.0441400552965,LOCAL_MUTATE,experiment-planner,adaptive_omnigent_seed_000-r02-local_mutate-1,6,,,,,{},2026-10-04T03:52:47.154521+00:00
